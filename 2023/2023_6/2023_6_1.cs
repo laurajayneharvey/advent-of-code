@@ -22,13 +22,13 @@ public class WaitForIt
 {
 	public void Run()
 	{
-		var input = @"Time:        63     78     94     68
-Distance:   411   1274   2047   1035";
+		var input = @"Time:      7  15   30
+Distance:  9  40  200";
 		
 		var races = GetRaces(input);
 		
 		var product = 1;
-		foreach (Race race in races)
+		foreach (var race in races)
 		{
 			var exceededRecordCount = CalculateWinningRaces(race);
 			if (exceededRecordCount != 0)
