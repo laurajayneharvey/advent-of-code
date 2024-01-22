@@ -7,28 +7,8 @@ acctuvwj
 abdefghi";
 
 var map = CreateMap();
-var possibleSources = map.Where(x => x.Elevation == 'a').ToList();
-var minDistance = int.MaxValue;
-Console.WriteLine($"{possibleSources.Count} possible sources");
-for (var i = 0; i < possibleSources.Count; i++)
-{
-    var possibleSource = possibleSources[i];
-    map = map.Select(x =>
-    {
-        x.Distance = int.MaxValue;
-        x.Visited = false;
-        x.IsSource = x.X == possibleSource.X && x.Y == possibleSource.Y;
-        return x;
-    }).ToList();
-    var distance = UseDijkstraBackwards();
-    minDistance = Math.Min(minDistance, distance);
-    Console.WriteLine($"{i}: min distance = {minDistance}");
-
-    // get rid of the char used as possible source since won't want it as a subpath for another
-    map.First(x => x.IsSource).Value = '~';
-    map.First(x => x.IsSource).Elevation = '~';
-}
-Console.WriteLine(minDistance);
+var distance = UseDijkstraBackwards();
+Console.WriteLine(distance);
 Console.ReadLine();
 
 int UseDijkstraBackwards()
@@ -37,6 +17,8 @@ int UseDijkstraBackwards()
     var current = map.First(x => x.IsDestination);
     while (true)
     {
+        Console.WriteLine($"current, distance = {current.Distance}, elevation = {(char)current.Elevation}");
+
         var neighbours = GetNeighbours(current);
         foreach (var neighbour in neighbours)
         {
@@ -44,19 +26,16 @@ int UseDijkstraBackwards()
             map.First(x => x.X == neighbour.X && x.Y == neighbour.Y).Distance = Math.Min(distance, neighbour.Distance);
         }
         map.First(x => x.X == current.X && x.Y == current.Y).Visited = true;
-        if (map.First(x => x.IsSource).Visited)
+
+        if (map.FirstOrDefault(x => x.Elevation == 'a' && x.Visited) != null)
         {
-            return map.First(x => x.IsSource).Distance;
+            return map.First(x => x.Elevation == 'a' && x.Visited).Distance;
         }
+
         var unvisited = map.Where(x => !x.Visited).OrderBy(x => x.Distance);
         current = unvisited.First();
-        if (current.Distance != int.MaxValue && current.IsSource)
+        if (current.Distance != int.MaxValue && current.Elevation == 'a')
         {
-            return current.Distance;
-        }
-        if (current.Distance >= minDistance)
-        {
-            // bail early if this distance is not going to be less than one already recorded
             return current.Distance;
         }
     }
@@ -64,51 +43,20 @@ int UseDijkstraBackwards()
 
 List<MapItem> GetNeighbours(MapItem currentItem)
 {
+    var possibleNeighbours = new List<MapItem?>
+    {
+        map.FirstOrDefault(x => x.X == currentItem.X + 1 && x.Y == currentItem.Y),
+        map.FirstOrDefault(x => x.X == currentItem.X - 1 && x.Y == currentItem.Y),
+        map.FirstOrDefault(x => x.X == currentItem.X && x.Y == currentItem.Y + 1),
+        map.FirstOrDefault(x => x.X == currentItem.X && x.Y == currentItem.Y - 1)
+    };
+
     var neighbours = new List<MapItem>();
-    var width = map.Max(item => item.X);
-    var height = map.Max(item => item.Y);
-
-    var up = new MapItem { X = currentItem.X, Y = currentItem.Y - 1 };
-    var canGoUp = up.X >= 0 && up.X <= width && up.Y >= 0 && up.Y <= height;
-    if (canGoUp)
+    foreach (var neighbour in possibleNeighbours)
     {
-        var upItem = map.First(item => item.X == up.X && item.Y == up.Y);
-        if (upItem.Elevation >= currentItem.Elevation - 1)
+        if (neighbour != null && neighbour.Elevation >= currentItem.Elevation - 1)
         {
-            neighbours.Add(upItem);
-        }
-    }
-
-    var down = new MapItem { X = currentItem.X, Y = currentItem.Y + 1 };
-    var canGoDown = down.X >= 0 && down.X <= width && down.Y >= 0 && down.Y <= height;
-    if (canGoDown)
-    {
-        var downItem = map.First(item => item.X == down.X && item.Y == down.Y);
-        if (downItem.Elevation >= currentItem.Elevation - 1)
-        {
-            neighbours.Add(downItem);
-        }
-    }
-
-    var left = new MapItem { X = currentItem.X - 1, Y = currentItem.Y };
-    var canGoLeft = left.X >= 0 && left.X <= width && left.Y >= 0 && left.Y <= height;
-    if (canGoLeft)
-    {
-        var leftItem = map.First(item => item.X == left.X && item.Y == left.Y);
-        if (leftItem.Elevation >= currentItem.Elevation - 1)
-        {
-            neighbours.Add(leftItem);
-        }
-    }
-
-    var right = new MapItem { X = currentItem.X + 1, Y = currentItem.Y };
-    var canGoRight = right.X >= 0 && right.X <= width && right.Y >= 0 && right.Y <= height;
-    if (canGoRight)
-    {
-        var rightItem = map.First(item => item.X == right.X && item.Y == right.Y);
-        if (rightItem.Elevation >= currentItem.Elevation - 1)
-        {
-            neighbours.Add(rightItem);
+            neighbours.Add(neighbour);
         }
     }
 
@@ -150,5 +98,4 @@ public class MapItem
     public int Distance { get; set; } = int.MaxValue;
     public bool Visited { get; set; }
     public bool IsDestination => Value == 'E';
-    public bool IsSource { get; set; }
 }
