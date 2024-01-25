@@ -1,4 +1,5 @@
-﻿using AdventOfCode._2022.Day13;
+﻿using AdventOfCode._2022.Day12;
+using AdventOfCode._2022.Day13;
 using AdventOfCodeUnitTests;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -175,6 +176,9 @@ namespace AdventOfCode.UnitTests
         [DataRow(RealInput.Day12, 528)]
         public void Day12_Part1(string input, int expected)
         {
+            var program = new Day12_Part1();
+            var actual = program.Run(input);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -182,6 +186,9 @@ namespace AdventOfCode.UnitTests
         [DataRow(RealInput.Day12, 522)]
         public void Day12_Part2(string input, int expected)
         {
+            var program = new Day12_Part2();
+            var actual = program.Run(input);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -189,7 +196,7 @@ namespace AdventOfCode.UnitTests
         [DataRow(RealInput.Day13, 6272)]
         public void Day13_Part1(string input, int expected)
         {
-            var program = new _2022_Day13_Part1();
+            var program = new Day13_Part1();
             var actual = program.Run(input);
             Assert.AreEqual(expected, actual);
         }
@@ -199,7 +206,7 @@ namespace AdventOfCode.UnitTests
         [DataRow(RealInput.Day13, 22288)]
         public void Day13_Part2(string input, int expected)
         {
-            var program = new _2022_Day13_Part2();
+            var program = new Day13_Part2();
             var actual = program.Run(input);
             Assert.AreEqual(expected, actual);
         }

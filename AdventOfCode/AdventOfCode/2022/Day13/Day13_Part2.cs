@@ -1,6 +1,6 @@
 ﻿namespace AdventOfCode._2022.Day13
 {
-    public class _2022_Day13_Part2
+    public class Day13_Part2
     {
         private static readonly string _divider1 = "[[2]]";
         private static readonly string _divider2 = "[[6]]";
@@ -10,7 +10,7 @@
         private Dictionary<(int pairIndex, string id), string> _leftArrays = [];
         private Dictionary<(int pairIndex, string id), string> _rightArrays = [];
 
-        public _2022_Day13_Part2()
+        public Day13_Part2()
         {
             _day13 = new Day13();
         }
