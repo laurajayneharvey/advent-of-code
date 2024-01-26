@@ -1,13 +1,10 @@
-﻿using System.Text.RegularExpressions;
-
-namespace AdventOfCode._2022.Day12
+﻿namespace AdventOfCode._2022.Day12
 {
     public class Day12
     {
         public List<MapItem> CreateMap(string input)
         {
-            var regex = new Regex("\r\n");
-            var rows = regex.Split(input);
+            var rows = input.Split("\r\n");
             var map = new List<MapItem>();
             for (var i = 0; i < rows.Length; i++)
             {
