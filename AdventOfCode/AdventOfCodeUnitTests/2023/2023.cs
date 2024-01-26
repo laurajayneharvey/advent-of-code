@@ -1,4 +1,5 @@
 ﻿using AdventOfCode._2023.Day10;
+using AdventOfCode._2023.Day9;
 using AdventOfCodeUnitTests._2023;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -120,17 +121,23 @@ namespace AdventOfCode.UnitTests
         }
 
         [TestMethod]
-        [DataRow(SampleInput.Day9, 0)]
-        [DataRow(RealInput.Day9, 0)]
+        [DataRow(SampleInput.Day9, 114)]
+        [DataRow(RealInput.Day9, 1904165718)]
         public void Day9_Part1(string input, int expected)
         {
+            var program = new Day9_Part1();
+            var actual = program.Run(input);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
-        [DataRow(SampleInput.Day9, 0)]
-        [DataRow(RealInput.Day9, 0)]
+        [DataRow(SampleInput.Day9, 2)]
+        [DataRow(RealInput.Day9, 964)]
         public void Day9_Part2(string input, int expected)
         {
+            var program = new Day9_Part2();
+            var actual = program.Run(input);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]

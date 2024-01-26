@@ -10,7 +10,9 @@
         public const string Day6 = @"";
         public const string Day7 = @"";
         public const string Day8 = @"";
-        public const string Day9 = @"";
+        public const string Day9 = @"0 3 6 9 12 15
+1 3 6 10 15 21
+10 13 16 21 30 45";
         public const string Day10a = @"-L|F7
 7S-7|
 L|7||
