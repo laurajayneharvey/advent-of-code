@@ -2,7 +2,7 @@
 using AdventOfCode._2022.Day12;
 using AdventOfCode._2022.Day13;
 using AdventOfCode._2022.Day7;
-using AdventOfCodeUnitTests;
+using AdventOfCodeUnitTests._2022;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AdventOfCode.UnitTests

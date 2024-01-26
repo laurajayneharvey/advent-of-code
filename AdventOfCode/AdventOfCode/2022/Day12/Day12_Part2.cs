@@ -21,8 +21,6 @@
             var current = map.First(x => x.IsDestination);
             while (true)
             {
-                Console.WriteLine($"current, distance = {current.Distance}, elevation = {(char)current.Elevation}");
-
                 var neighbours = GetNeighbours(current, map);
                 foreach (var neighbour in neighbours)
                 {
