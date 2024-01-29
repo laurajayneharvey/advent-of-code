@@ -9,8 +9,7 @@
 
             for (var i = 0; i < lines.Length; i++)
             {
-                var line = lines[i];
-                var digits = line.ToCharArray().Where(c => char.IsNumber(c));
+                var digits = lines[i].ToCharArray().Where(c => char.IsNumber(c));
                 var firstDigit = digits.First();
                 var lastDigit = digits.ElementAt(digits.Count() - 1);
                 var doubleDigit = int.Parse($"{firstDigit}{lastDigit}");

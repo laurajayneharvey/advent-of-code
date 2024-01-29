@@ -1,5 +1,6 @@
 ﻿using AdventOfCode._2023.Day1;
 using AdventOfCode._2023.Day10;
+using AdventOfCode._2023.Day2;
 using AdventOfCode._2023.Day5;
 using AdventOfCode._2023.Day6;
 using AdventOfCode._2023.Day7;
@@ -38,6 +39,9 @@ namespace AdventOfCode.UnitTests
         [DataRow(RealInput.Day2, 2006)]
         public void Day2_Part1(string input, int expected)
         {
+            var program = new Day2_Part1();
+            var actual = program.Run(input);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -45,6 +49,9 @@ namespace AdventOfCode.UnitTests
         [DataRow(RealInput.Day2, 84911)]
         public void Day2_Part2(string input, int expected)
         {
+            var program = new Day2_Part2();
+            var actual = program.Run(input);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -179,7 +186,7 @@ namespace AdventOfCode.UnitTests
         [TestMethod]
         [DataRow(SampleInput.Day10a, 4)]
         [DataRow(SampleInput.Day10b, 8)]
-        [DataRow(RealInput.Day10, 6768)] // takes a while (~1.5 min)
+        [SkipDataRow("takes a while (~1.5 min)", RealInput.Day10, 6768)]
         public void Day10_Part1(string input, int expected)
         {
             var program = new Day10_Part1();
@@ -191,12 +198,21 @@ namespace AdventOfCode.UnitTests
         [DataRow(SampleInput.Day10c, 4)]
         [DataRow(SampleInput.Day10d, 8)]
         [DataRow(SampleInput.Day10e, 10)]
-        [DataRow(RealInput.Day10, 351)] // takes a while (~1.3 min)
+        [SkipDataRow("takes a while (~1.3 min)", RealInput.Day10, 351)]
         public void Day10_Part2(string input, int expected)
         {
             var program = new Day10_Part2();
             var actual = program.Run(input);
             Assert.AreEqual(expected, actual);
+        }
+    }
+
+    [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
+    public class SkipDataRowAttribute : Attribute
+    {
+        public SkipDataRowAttribute(string message, string input, object expectedResult)
+        {
+            Console.WriteLine($"Skipped test: {message}");
         }
     }
 }
