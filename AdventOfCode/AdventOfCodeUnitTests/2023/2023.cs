@@ -1,4 +1,5 @@
-﻿using AdventOfCode._2023.Day10;
+﻿using AdventOfCode._2023.Day1;
+using AdventOfCode._2023.Day10;
 using AdventOfCode._2023.Day5;
 using AdventOfCode._2023.Day6;
 using AdventOfCode._2023.Day7;
@@ -13,57 +14,63 @@ namespace AdventOfCode.UnitTests
     public class _2023
     {
         [TestMethod]
-        [DataRow(SampleInput.Day1, 0)]
-        [DataRow(RealInput.Day1, 0)]
+        [DataRow(SampleInput.Day1a, 142)]
+        [DataRow(RealInput.Day1, 57346)]
         public void Day1_Part1(string input, int expected)
         {
+            var program = new Day1_Part1();
+            var actual = program.Run(input);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
-        [DataRow(SampleInput.Day1, 0)]
-        [DataRow(RealInput.Day1, 0)]
+        [DataRow(SampleInput.Day1b, 281)]
+        [DataRow(RealInput.Day1, 57345)]
         public void Day1_Part2(string input, int expected)
         {
+            var program = new Day1_Part2();
+            var actual = program.Run(input);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
-        [DataRow(SampleInput.Day2, 0)]
-        [DataRow(RealInput.Day2, 0)]
+        [DataRow(SampleInput.Day2, 8)]
+        [DataRow(RealInput.Day2, 2006)]
         public void Day2_Part1(string input, int expected)
         {
         }
 
         [TestMethod]
-        [DataRow(SampleInput.Day2, 0)]
-        [DataRow(RealInput.Day2, 0)]
+        [DataRow(SampleInput.Day2, 2286)]
+        [DataRow(RealInput.Day2, 84911)]
         public void Day2_Part2(string input, int expected)
         {
         }
 
         [TestMethod]
-        [DataRow(SampleInput.Day3, 0)]
-        [DataRow(RealInput.Day3, 0)]
+        [DataRow(SampleInput.Day3, 4361)]
+        [DataRow(RealInput.Day3, 538046)]
         public void Day3_Part1(string input, int expected)
         {
         }
 
         [TestMethod]
-        [DataRow(SampleInput.Day3, 0)]
-        [DataRow(RealInput.Day3, 0)]
+        [DataRow(SampleInput.Day3, 467835)]
+        [DataRow(RealInput.Day3, 81709807)]
         public void Day3_Part2(string input, int expected)
         {
         }
 
         [TestMethod]
-        [DataRow(SampleInput.Day4, 0)]
-        [DataRow(RealInput.Day4, 0)]
+        [DataRow(SampleInput.Day4, 13)]
+        [DataRow(RealInput.Day4, 23847)]
         public void Day4_Part1(string input, int expected)
         {
         }
 
         [TestMethod]
-        [DataRow(SampleInput.Day4, 0)]
-        [DataRow(RealInput.Day4, 0)]
+        [DataRow(SampleInput.Day4, 30)]
+        [DataRow(RealInput.Day4, 8570000)]
         public void Day4_Part2(string input, int expected)
         {
         }
