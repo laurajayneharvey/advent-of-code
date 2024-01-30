@@ -1,7 +1,16 @@
-﻿using AdventOfCode._2022.Day11;
+﻿using AdventOfCode._2022.Day1;
+using AdventOfCode._2022.Day10;
+using AdventOfCode._2022.Day11;
 using AdventOfCode._2022.Day12;
 using AdventOfCode._2022.Day13;
+using AdventOfCode._2022.Day2;
+using AdventOfCode._2022.Day3;
+using AdventOfCode._2022.Day4;
+using AdventOfCode._2022.Day5;
+using AdventOfCode._2022.Day6;
 using AdventOfCode._2022.Day7;
+using AdventOfCode._2022.Day8;
+using AdventOfCode._2022.Day9;
 using AdventOfCodeUnitTests._2022;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -15,6 +24,9 @@ namespace AdventOfCode.UnitTests
         [DataRow(RealInput.Day1, 74394)]
         public void Day1_Part1(string input, int expected)
         {
+            var program = new Day1_Part1();
+            var actual = program.Run(input);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -22,6 +34,9 @@ namespace AdventOfCode.UnitTests
         [DataRow(RealInput.Day1, 212836)]
         public void Day1_Part2(string input, int expected)
         {
+            var program = new Day1_Part2();
+            var actual = program.Run(input);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -29,6 +44,9 @@ namespace AdventOfCode.UnitTests
         [DataRow(RealInput.Day2, 12645)]
         public void Day2_Part1(string input, int expected)
         {
+            var program = new Day2_Part1();
+            var actual = program.Run(input);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -36,6 +54,9 @@ namespace AdventOfCode.UnitTests
         [DataRow(RealInput.Day2, 11756)]
         public void Day2_Part2(string input, int expected)
         {
+            var program = new Day2_Part2();
+            var actual = program.Run(input);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -43,6 +64,9 @@ namespace AdventOfCode.UnitTests
         [DataRow(RealInput.Day3, 7701)]
         public void Day3_Part1(string input, int expected)
         {
+            var program = new Day3_Part1();
+            var actual = program.Run(input);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -50,6 +74,9 @@ namespace AdventOfCode.UnitTests
         [DataRow(RealInput.Day3, 2644)]
         public void Day3_Part2(string input, int expected)
         {
+            var program = new Day3_Part2();
+            var actual = program.Run(input);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -57,6 +84,9 @@ namespace AdventOfCode.UnitTests
         [DataRow(RealInput.Day4, 560)]
         public void Day4_Part1(string input, int expected)
         {
+            var program = new Day4_Part1();
+            var actual = program.Run(input);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -64,6 +94,9 @@ namespace AdventOfCode.UnitTests
         [DataRow(RealInput.Day4, 839)]
         public void Day4_Part2(string input, int expected)
         {
+            var program = new Day4_Part2();
+            var actual = program.Run(input);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -71,6 +104,9 @@ namespace AdventOfCode.UnitTests
         [DataRow(RealInput.Day5, "WCZTHTMPS")]
         public void Day5_Part1(string input, string expected)
         {
+            var program = new Day5_Part1();
+            var actual = program.Run(input);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -78,6 +114,9 @@ namespace AdventOfCode.UnitTests
         [DataRow(RealInput.Day5, "BLSGJSDTS")]
         public void Day5_Part2(string input, string expected)
         {
+            var program = new Day5_Part2();
+            var actual = program.Run(input);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -89,6 +128,9 @@ namespace AdventOfCode.UnitTests
         [DataRow(RealInput.Day6, 1760)]
         public void Day6_Part1(string input, int expected)
         {
+            var program = new Day6_Part1();
+            var actual = program.Run(input);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -100,6 +142,9 @@ namespace AdventOfCode.UnitTests
         [DataRow(RealInput.Day6, 2974)]
         public void Day6_Part2(string input, int expected)
         {
+            var program = new Day6_Part2();
+            var actual = program.Run(input);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -127,6 +172,9 @@ namespace AdventOfCode.UnitTests
         [DataRow(RealInput.Day8, 1851)]
         public void Day8_Part1(string input, int expected)
         {
+            var program = new Day8_Part1();
+            var actual = program.Run(input);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -134,6 +182,9 @@ namespace AdventOfCode.UnitTests
         [DataRow(RealInput.Day8, 574080)]
         public void Day8_Part2(string input, int expected)
         {
+            var program = new Day8_Part2();
+            var actual = program.Run(input);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -141,6 +192,9 @@ namespace AdventOfCode.UnitTests
         [DataRow(RealInput.Day9, 6090)]
         public void Day9_Part1(string input, int expected)
         {
+            var program = new Day9_Part1();
+            var actual = program.Run(input);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -148,6 +202,9 @@ namespace AdventOfCode.UnitTests
         [DataRow(RealInput.Day9, 2566)]
         public void Day9_Part2(string input, int expected)
         {
+            var program = new Day9_Part2();
+            var actual = program.Run(input);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -155,14 +212,20 @@ namespace AdventOfCode.UnitTests
         [DataRow(RealInput.Day10, 13720)]
         public void Day10_Part1(string input, int expected)
         {
+            var program = new Day10_Part1();
+            var actual = program.Run(input);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
-        [DataRow(SampleInput.Day10, "CRT")]
-        [DataRow(RealInput.Day10, "FBURHZCH")]
+        [DataRow(SampleInput.Day10, SampleInput.Day10Output)]
+        [DataRow(RealInput.Day10, RealInput.Day10Output)] // "FBURHZCH"
         public void Day10_Part2(string input, string expected)
         {
             // note - I have the rendered solution, will need to be able to return the result differently to suit this test
+            var program = new Day10_Part2();
+            var actual = program.Run(input);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
