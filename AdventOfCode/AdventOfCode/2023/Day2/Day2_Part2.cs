@@ -10,7 +10,7 @@
             foreach (var game in games)
             {
                 var gameParts = game.Split(": ");
-                var id = gameParts[0].Replace("Game ", "");
+                var id = gameParts[0].Replace("Game ", string.Empty);
                 var rounds = gameParts[1].Split("; ");
                 var maxBlue = 0;
                 var maxRed = 0;
