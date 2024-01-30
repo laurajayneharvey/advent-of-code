@@ -26,9 +26,9 @@ namespace AdventOfCode._2023.Day5
             var almanac = new List<AlmanacEntryPart2>();
             tables.ToList().ForEach(table =>
             {
-                var lines = table.Split('\n');
+                var lines = table.Split("\r\n");
                 var heading = lines[0];
-                var headingParts = heading.Split(' ')[0].Split('-');
+                var headingParts = heading.Split(' ')[0].Split("-");
                 var source = headingParts[0].Trim();
                 var destination = headingParts[2];
 
@@ -37,7 +37,7 @@ namespace AdventOfCode._2023.Day5
                 var ranges = new List<AlmanacRange>();
                 for (var i = 0; i < rangeLines.Count; i++)
                 {
-                    var parts = rangeLines[i].Split(' ');
+                    var parts = rangeLines[i].Split(" ");
                     var destinationStart = double.Parse(parts[0]);
                     var sourceStart = double.Parse(parts[1]);
                     var rangeLength = double.Parse(parts[2]);
@@ -65,7 +65,7 @@ namespace AdventOfCode._2023.Day5
         {
             var seedRanges = new List<RangePart2>();
             var seedLineParts = Regex.Split(table, ": ");
-            var seeds = seedLineParts[1].Split(' ');
+            var seeds = seedLineParts[1].Split(" ");
             for (var i = 0; i < seeds.Count(); i++)
             {
                 if (i % 2 == 0)

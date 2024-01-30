@@ -16,7 +16,7 @@
             var operation = (ulong worryLevel) =>
             {
                 var divided = worryLevel / 3;
-                var result = divided.ToString().Split('.')[0];
+                var result = divided.ToString().Split(".")[0];
                 return ulong.Parse(result);
             };
 

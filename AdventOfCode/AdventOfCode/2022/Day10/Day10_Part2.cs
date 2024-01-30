@@ -20,11 +20,11 @@
             {
                 if (Math.Abs(spriteMiddle - (cycleIndex % 40)) <= 1)
                 {
-                    output += '#';
+                    output += "#";
                 }
                 else
                 {
-                    output += '.';
+                    output += ".";
                 }
 
                 var x = xValues[cycleIndex];
