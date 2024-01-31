@@ -13,7 +13,7 @@
             return exceededRecordCount;
         }
 
-        private Race GetRace(string input)
+        private static Race GetRace(string input)
         {
             var lines = input.Split("\r\n");
             var time = lines[0].Replace("Time:", string.Empty).Replace(" ", string.Empty);

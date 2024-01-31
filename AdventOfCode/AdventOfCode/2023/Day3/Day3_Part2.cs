@@ -31,7 +31,7 @@
                             var l = j + 1;
                             while (l < cols.Length && char.IsNumber(cols[l]))
                             {
-                                partNumber = partNumber + cols[l];
+                                partNumber += cols[l];
                                 l++;
                                 j = l;
                             }
@@ -47,13 +47,13 @@
             }
 
             var possibleGears = new Dictionary<string, (int gearRatio, int count)>();
-            foreach (var possibleGear in possibleGearsOverall)
+            foreach (var (rowIndex, colIndex, partNumber) in possibleGearsOverall)
             {
-                var key = $"{possibleGear.rowIndex}-{possibleGear.colIndex}";
+                var key = $"{rowIndex}-{colIndex}";
                 var found = possibleGears.TryGetValue(key, out var group);
 
                 var existingGearRatio = found ? group.gearRatio : 1;
-                var newGearRatio = existingGearRatio *= possibleGear.partNumber;
+                var newGearRatio = existingGearRatio *= partNumber;
 
                 var existingCount = found ? group.count : 0;
                 existingCount++;
@@ -69,7 +69,7 @@
             return gearRatioSum;
         }
 
-        private List<(int rowIndex, int colIndex, int partNumber)> GetSurrounding(int i, int j, string[] rows, char[] cols)
+        private static List<(int rowIndex, int colIndex, int partNumber)> GetSurrounding(int i, int j, string[] rows, char[] cols)
         {
             var surrounding = new List<(int rowIndex, int colIndex, int partNumber)>();
             // row above

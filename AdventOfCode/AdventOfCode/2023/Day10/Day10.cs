@@ -5,10 +5,10 @@
         public (List<Tile> tiles, int width, int height) GetTiles(string input)
         {
             var rows = input.Split("\r\n");
-            var tiles = CreateTiles(rows.ToList());
+            var tiles = CreateTiles([.. rows]);
 
-            var width = rows[0].ToCharArray().Count();
-            var height = rows.Count();
+            var width = rows[0].ToCharArray().Length;
+            var height = rows.Length;
             tiles = FloodSketch(tiles, width, height);
 
             return (tiles, width, height);
@@ -23,15 +23,15 @@
             // up to four potential loop starts to examine (U/D/L/R), eventually will be two remaining (both ends of same loop)
             foreach (var tile in nextTiles)
             {
-                loops.Add(new List<Tile> { start, tile });
+                loops.Add([start, tile]);
             }
 
             var stepCount = 1; // first tile already added
             var mainLoop = new List<Tile>();
-            while (loops.Any())
+            while (loops.Count != 0)
             {
                 var oldLoops = loops;
-                loops = new List<List<Tile>>();
+                loops = [];
                 foreach (var oldLoop in oldLoops.ToList())
                 {
                     nextTiles = GetNextTiles(tiles, oldLoop.Last(), width, height, true);
@@ -50,9 +50,9 @@
 
                 stepCount++;
 
-                if (!loops.Any())
+                if (loops.Count == 0)
                 {
-                    mainLoop = oldLoops.First(x => x.Count() == stepCount).ToList();
+                    mainLoop = [.. oldLoops.First(x => x.Count == stepCount)];
                 }
             }
 
@@ -60,22 +60,22 @@
         }
 
         private readonly IDictionary<char, RuleSet> rules = new Dictionary<char, RuleSet> {
-            {'|', new RuleSet { Up = new List<char> {'7','F','|' }, Down = new List<char> {'J','L','|' }}},
-            {'-', new RuleSet { Left = new List<char> {'F','L','-' }, Right = new List<char> { '7', 'J', '-' }}},
-            {'7', new RuleSet { Down = new List<char> {'J','L','|' }, Left = new List<char> { 'F', 'L', '-' }}},
-            {'F', new RuleSet { Down = new List<char> {'J','L','|' }, Right = new List<char> {'7','J','-'}}},
-            {'J', new RuleSet { Up = new List<char> {'7','F','|'}, Left = new List<char> { 'F', 'L', '-' }}},
-            {'L', new RuleSet { Up = new List<char> { '7', 'F', '|' }, Right = new List<char> { '7', 'J', '-' }}},
-            {'S', new RuleSet { Up = new List<char> { '7', 'F', 'J', 'L', '|', '-' }, Down = new List<char> { '7', 'F', 'J', 'L', '|', '-' }, Left = new List<char> { '7', 'F', 'J', 'L', '|', '-' }, Right = new List<char> { '7', 'F', 'J', 'L', '|', '-' }}}
+            {'|', new RuleSet { Up = ['7','F','|'], Down = ['J','L','|']}},
+            {'-', new RuleSet { Left = ['F','L','-'], Right = ['7', 'J', '-']}},
+            {'7', new RuleSet { Down = ['J','L','|'], Left = ['F', 'L', '-']}},
+            {'F', new RuleSet { Down = ['J','L','|'], Right = ['7','J','-']}},
+            {'J', new RuleSet { Up = ['7','F','|'], Left = ['F', 'L', '-']}},
+            {'L', new RuleSet { Up = ['7', 'F', '|'], Right = ['7', 'J', '-']}},
+            {'S', new RuleSet { Up = ['7', 'F', 'J', 'L', '|', '-'], Down = ['7', 'F', 'J', 'L', '|', '-'], Left = ['7', 'F', 'J', 'L', '|', '-'], Right = ['7', 'F', 'J', 'L', '|', '-']}}
         };
 
-        private List<Tile> CreateTiles(List<string> rows)
+        private static List<Tile> CreateTiles(List<string> rows)
         {
             var tiles = new List<Tile>();
-            for (var i = 0; i < rows.Count(); i++)
+            for (var i = 0; i < rows.Count; i++)
             {
                 var columns = rows[i].ToCharArray();
-                for (var j = 0; j < columns.Count(); j++)
+                for (var j = 0; j < columns.Length; j++)
                 {
                     var tile = new Tile
                     {
@@ -181,7 +181,7 @@
                 return nextTiles;
             }
 
-            return new List<Tile>();
+            return [];
         }
 
         private List<Tile> FloodSketch(List<Tile> tiles, int width, int height)
@@ -193,7 +193,7 @@
 
                 tiles = tiles.Select(tile =>
                 {
-                    if (tile.Pipe != 'S' && tile.Pipe != '.' && !GetNextTiles(tiles, tile, width, height, true).Any())
+                    if (tile.Pipe != 'S' && tile.Pipe != '.' && GetNextTiles(tiles, tile, width, height, true).Count == 0)
                     {
                         tile.Pipe = '.';
                     }
@@ -215,10 +215,10 @@
 
     public class RuleSet
     {
-        public List<char> Up = new();
-        public List<char> Down = new();
-        public List<char> Left = new();
-        public List<char> Right = new();
+        public List<char> Up = [];
+        public List<char> Down = [];
+        public List<char> Left = [];
+        public List<char> Right = [];
     }
 
     public class Coordinate
@@ -230,6 +230,6 @@
     public class Tile
     {
         public char Pipe;
-        public Coordinate Coordinate;
+        public required Coordinate Coordinate;
     }
 }

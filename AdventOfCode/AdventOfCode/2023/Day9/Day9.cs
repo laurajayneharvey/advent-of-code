@@ -19,13 +19,13 @@
             return overall;
         }
 
-        private int GetNextItem(List<int> history)
+        private static int GetNextItem(List<int> history)
         {
             var lines = new List<List<int>>() { history };
             while (!history.All(x => x == 0))
             {
                 var newHistoryLine = new List<int>();
-                for (var i = 0; i < history.Count() - 1; i++)
+                for (var i = 0; i < history.Count - 1; i++)
                 {
                     newHistoryLine.Add(history[i + 1] - history[i]);
                 }
@@ -33,7 +33,7 @@
                 history = newHistoryLine;
             }
 
-            return lines.Sum(line => line[line.Count() - 1]);
+            return lines.Sum(line => line[line.Count - 1]);
         }
     }
 }

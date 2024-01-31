@@ -6,7 +6,7 @@
         {
             var index = requiredUniqueCount - 1;
             var stream = input.ToCharArray();
-            while (index < stream.Count())
+            while (index < stream.Length)
             {
                 var skip = index - (requiredUniqueCount - 1);
                 var take = (index + 1) - skip;

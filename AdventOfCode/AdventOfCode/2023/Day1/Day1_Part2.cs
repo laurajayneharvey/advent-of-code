@@ -7,10 +7,10 @@
             var lines = input.Split("\r\n");
             var sum = 0;
 
-            for (var i = 0; i < lines.Count(); i++)
+            for (var i = 0; i < lines.Length; i++)
             {
                 var line = lines[i];
-                var lineLength = line.ToCharArray().Count();
+                var lineLength = line.ToCharArray().Length;
                 char? firstDigit = '0';
                 char? lastDigit = '0';
 
@@ -18,7 +18,7 @@
                 {
                     var startIndex = 0;
                     var endIndex = j + 1;
-                    var partial = line.Substring(startIndex, endIndex - startIndex);
+                    var partial = line[startIndex..endIndex];
                     firstDigit = FindNumber(partial);
                     if (firstDigit != null)
                     {
@@ -30,7 +30,7 @@
                 {
                     var startIndex = lineLength - 1 - j;
                     var endIndex = lineLength;
-                    var partial = line.Substring(startIndex, endIndex - startIndex);
+                    var partial = line[startIndex..endIndex];
                     lastDigit = FindNumber(partial);
                     if (lastDigit != null)
                     {
@@ -45,7 +45,7 @@
             return sum;
         }
 
-        private string ReplaceSpeltNumber(string input)
+        private static string ReplaceSpeltNumber(string input)
         {
             return input
             .Replace("one", "1")

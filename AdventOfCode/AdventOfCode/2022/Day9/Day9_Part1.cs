@@ -17,8 +17,8 @@
 
                 for (var i = 0; i < step; i++)
                 {
-                    var Hx = H[H.Count() - 1].x;
-                    var Hy = H[H.Count() - 1].y;
+                    var Hx = H[H.Count - 1].x;
+                    var Hy = H[H.Count - 1].y;
                     if (direction == "R")
                     {
                         Hx++;
@@ -38,10 +38,10 @@
 
                     H.Add((Hx, Hy));
 
-                    Hx = H[H.Count() - 1].x;
-                    Hy = H[H.Count() - 1].y;
-                    var Tx = T[T.Count() - 1].x;
-                    var Ty = T[T.Count() - 1].y;
+                    Hx = H[H.Count - 1].x;
+                    Hy = H[H.Count - 1].y;
+                    var Tx = T[T.Count - 1].x;
+                    var Ty = T[T.Count - 1].y;
 
                     if (Math.Abs(Tx - Hx) <= 1 && Math.Abs(Ty - Hy) <= 1)
                     {

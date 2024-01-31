@@ -27,7 +27,7 @@
                 }
                 else
                 {
-                    map[current] = new List<int>();
+                    map[current] = [];
                 }
             }
 
@@ -36,7 +36,7 @@
             {
                 addTo = [];
 
-                sum += currentCards.Count();
+                sum += currentCards.Count;
 
                 var counts = new Dictionary<int, int>();
                 foreach (var currentValue in currentCards)

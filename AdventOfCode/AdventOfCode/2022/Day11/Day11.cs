@@ -20,7 +20,7 @@
                 {
                     StartingItems = startingItems,
                     Operator = operatorItems[1],
-                    Operand = operatorItems[2],// old, number
+                    Operand = operatorItems[2],
                     Test = test,
                     True = trueResult,
                     False = falseResult
@@ -47,7 +47,7 @@
             return monkeyBusiness;
         }
 
-        private void PerformInspection(List<Monkey> monkies, Func<ulong, ulong> operation)
+        private static void PerformInspection(List<Monkey> monkies, Func<ulong, ulong> operation)
         {
             for (var i = 0; i < monkies.Count; i++)
             {

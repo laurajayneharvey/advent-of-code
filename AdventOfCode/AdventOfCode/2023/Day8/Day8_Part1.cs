@@ -15,7 +15,7 @@
             {
                 var node = nodes.First(x => x.Origin == current);
 
-                var directionIndex = index % instructions.Count();
+                var directionIndex = index % instructions.Length;
                 var direction = instructions[directionIndex];
                 if (direction == 'L')
                 {

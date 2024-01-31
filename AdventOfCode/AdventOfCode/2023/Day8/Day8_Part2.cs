@@ -8,7 +8,7 @@
         {
             var (instructions, nodes) = _day8.GetNodes(input);
 
-            var activeNodes = nodes.Where(x => x.Origin.EndsWith("A"));
+            var activeNodes = nodes.Where(x => x.Origin.EndsWith('A'));
 
             double lowestCommonMultiple = 1;
             foreach (var activeNode in activeNodes)
@@ -16,11 +16,11 @@
                 var current = activeNode.Origin;
 
                 var index = 0;
-                while (!current.EndsWith("Z"))
+                while (!current.EndsWith('Z'))
                 {
                     var node = nodes.First(x => x.Origin == current);
 
-                    var directionIndex = index % instructions.Count();
+                    var directionIndex = index % instructions.Length;
                     var direction = instructions[directionIndex];
                     if (direction == 'L')
                     {
@@ -40,7 +40,7 @@
             return lowestCommonMultiple;
         }
 
-        private double GreatestCommonFactor(double a, double b)
+        private static double GreatestCommonFactor(double a, double b)
         {
             while (b != 0)
             {
@@ -52,7 +52,7 @@
             return a;
         }
 
-        private double LowestCommonMultiple(double a, double b)
+        private static double LowestCommonMultiple(double a, double b)
         {
             var greatestCommonFactor = GreatestCommonFactor(a, b);
             return (a / greatestCommonFactor) * b;

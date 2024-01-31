@@ -12,7 +12,7 @@
             var nodes = new List<Node>();
             foreach (var nodeLine in network)
             {
-                var origin = nodeLine.Substring(0, 3);
+                var origin = nodeLine[..3];
                 var left = nodeLine.Substring(7, 3);
                 var right = nodeLine.Substring(12, 3);
                 nodes.Add(new Node { Origin = origin, Left = left, Right = right });
@@ -24,8 +24,8 @@
 
     public class Node
     {
-        public string Origin;
-        public string Left;
-        public string Right;
+        public required string Origin;
+        public required string Left;
+        public required string Right;
     }
 }

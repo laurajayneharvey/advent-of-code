@@ -13,14 +13,14 @@
 
             var edge = 0;
             var interior = 0;
-            for (var i = 0; i < matrix.Count(); i++)
+            for (var i = 0; i < matrix.Count; i++)
             {
                 var currentRow = matrix[i];
-                for (var j = 0; j < transposed.Count(); j++)
+                for (var j = 0; j < transposed.Count; j++)
                 {
                     var currentValue = currentRow[j].ToString();
 
-                    if (i == 0 || i == matrix.Count() - 1 || j == 0 || j == transposed.Count() - 1)
+                    if (i == 0 || i == matrix.Count - 1 || j == 0 || j == transposed.Count - 1)
                     {
                         edge++;
                         continue;
@@ -32,7 +32,7 @@
                         interior++;
                         continue;
                     }
-                    var right = currentRow.Skip(j + 1).Take(transposed.Count() - (j + 1));
+                    var right = currentRow.Skip(j + 1).Take(transposed.Count - (j + 1));
                     if (!right.Any(tree => int.Parse(tree.ToString()) >= int.Parse(currentValue)))
                     {
                         interior++;
@@ -46,7 +46,7 @@
                         interior++;
                         continue;
                     }
-                    var below = currentColumn.Skip(i + 1).Take(matrix.Count() - (i + 1));
+                    var below = currentColumn.Skip(i + 1).Take(matrix.Count - (i + 1));
                     if (!below.Any(tree => int.Parse(tree.ToString()) >= int.Parse(currentValue)))
                     {
                         interior++;

@@ -38,7 +38,7 @@
             return GetOverallWinnings(hands);
         }
 
-        private List<int> GetCards(char[] cardChars, bool replaceJokers = false)
+        private static List<int> GetCards(char[] cardChars, bool replaceJokers = false)
         {
             var cards = cardChars.Select(x =>
             {
@@ -49,28 +49,22 @@
                 }
                 else
                 {
-                    switch (fromAscii)
+                    return fromAscii switch
                     {
-                        case "T":
-                            return 10;
-                        case "Q":
-                            return 12;
-                        case "K":
-                            return 13;
-                        case "A":
-                            return 14;
-                        case "J":
-                            return replaceJokers ? 1 : 11;
-                        default:
-                            return 0;
-                    }
+                        "T" => 10,
+                        "Q" => 12,
+                        "K" => 13,
+                        "A" => 14,
+                        "J" => replaceJokers ? 1 : 11,
+                        _ => 0,
+                    };
                 }
             });
 
             return cards.ToList();
         }
 
-        private List<int> GetCardsWithJokersReplaced(List<int> cards)
+        private static List<int> GetCardsWithJokersReplaced(List<int> cards)
         {
             var jokerCount = cards.Count(x => x == 1);
             if (jokerCount == 0 || jokerCount == 5)
@@ -87,15 +81,16 @@
             return cards.Select(x => x == 1 ? replacementCard : x).ToList();
         }
 
-        private HandType GetHandType(List<int> cards)
+        private static HandType GetHandType(List<int> cards)
         {
             var groups = cards.GroupBy(x => x);
+            var groupCount = groups.Count();
             var handType = HandType.None;
-            if (groups.Count() == 1)
+            if (groupCount == 1)
             {
                 handType = HandType.FiveOfAKind;
             }
-            else if (groups.Count() == 2)
+            else if (groupCount == 2)
             {
                 if (groups.Any(group => group.Count() == 4))
                 {
@@ -106,7 +101,7 @@
                     handType = HandType.FullHouse;
                 }
             }
-            else if (groups.Count() == 3)
+            else if (groupCount == 3)
             {
                 if (groups.Any(group => group.Count() == 3))
                 {
@@ -117,7 +112,7 @@
                     handType = HandType.TwoPair;
                 }
             }
-            else if (groups.Count() == 4)
+            else if (groupCount == 4)
             {
                 handType = HandType.OnePair;
             }
@@ -129,7 +124,7 @@
             return handType;
         }
 
-        private int GetOverallWinnings(List<Hand> hands)
+        private static int GetOverallWinnings(List<Hand> hands)
         {
             var orderedHands = hands
                 .OrderByDescending(hand => hand.Cards[4])
@@ -165,7 +160,7 @@
 
     public class Hand
     {
-        public List<int> Cards;
+        public List<int> Cards = [];
         public HandType HandType;
         public int Bid;
     }

@@ -32,7 +32,7 @@
                             var l = j + 1;
                             while (l < cols.Length && char.IsNumber(cols[l]))
                             {
-                                partNumber = partNumber + cols[l];
+                                partNumber += cols[l];
                                 l++;
                                 j = l;
                             }
@@ -46,7 +46,7 @@
             return partNumberSum;
         }
 
-        private List<char> GetSurrounding(int i, int j, string[] rows, char[] cols)
+        private static List<char> GetSurrounding(int i, int j, string[] rows, char[] cols)
         {
             var surrounding = new List<char>();
             // row above
