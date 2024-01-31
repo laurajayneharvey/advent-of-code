@@ -73,7 +73,7 @@ $ ls
 65332
 33549
 35390";
-        public const string Day9 = @"R 4
+        public const string Day9a = @"R 4
 U 4
 L 3
 D 1
@@ -81,6 +81,14 @@ R 4
 D 1
 L 5
 R 2";
+        public const string Day9b = @"R 5
+U 8
+L 8
+D 3
+R 17
+D 10
+L 25
+U 20";
         public const string Day10 = @"addx 15
 addx -11
 addx 6

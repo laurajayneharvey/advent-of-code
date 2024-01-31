@@ -3,14 +3,9 @@
     public class Day13_Part1
     {
         private readonly List<(string left, string right)> _pairs = [];
-        private readonly Day13 _day13;
+        private readonly Day13 _day13 = new();
         private readonly Dictionary<(int pairIndex, string id), string> _leftArrays = [];
         private readonly Dictionary<(int pairIndex, string id), string> _rightArrays = [];
-
-        public Day13_Part1()
-        {
-            _day13 = new Day13();
-        }
 
         public int Run(string input)
         {

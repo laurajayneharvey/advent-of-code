@@ -6,14 +6,9 @@
         private static readonly string _divider2 = "[[6]]";
 
         private readonly List<(int pairIndex, string line)> _pairs = [];
-        private readonly Day13 _day13;
+        private readonly Day13 _day13 = new();
         private Dictionary<(int pairIndex, string id), string> _leftArrays = [];
         private Dictionary<(int pairIndex, string id), string> _rightArrays = [];
-
-        public Day13_Part2()
-        {
-            _day13 = new Day13();
-        }
 
         public int Run(string input)
         {

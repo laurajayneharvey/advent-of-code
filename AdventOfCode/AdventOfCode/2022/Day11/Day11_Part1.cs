@@ -2,12 +2,7 @@
 {
     public class Day11_Part1
     {
-        private readonly Day11 _day11;
-
-        public Day11_Part1()
-        {
-            _day11 = new Day11();
-        }
+        private readonly Day11 _day11 = new();
 
         public ulong Run(string input)
         {
