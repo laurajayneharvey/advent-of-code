@@ -2,9 +2,16 @@
 {
     public class Day5_Part2
     {
+        private readonly Day5 _day5;
+
+        public Day5_Part2()
+        {
+            _day5 = new Day5();
+        }
+
         public string Run(string input)
         {
-            return string.Empty;
+            return _day5.Run(input);
         }
     }
 }
