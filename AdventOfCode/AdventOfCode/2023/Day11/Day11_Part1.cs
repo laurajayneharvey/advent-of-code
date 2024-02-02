@@ -2,66 +2,49 @@
 {
     public class Day11_Part1
     {
-        private readonly Day11 _day11 = new();
-
         public int? Run(string input)
         {
-            var lines = input.Split("\r\n");
+            var rows = input.Split("\r\n");
 
             var columns = new List<string>();
-            var columnCount = lines[0].Length;
-            for (var colIndex = 0; colIndex < columnCount; colIndex++)
+            for (var colIndex = 0; colIndex < rows[0].Length; colIndex++)
             {
                 var column = string.Empty;
-                for (var rowIndex = 0; rowIndex < lines.Length; rowIndex++)
+                for (var rowIndex = 0; rowIndex < rows.Length; rowIndex++)
                 {
-                    column += lines[rowIndex][colIndex];
+                    column += rows[rowIndex][colIndex];
                 }
                 columns.Add(column);
             }
 
-            var expandedColumns = new List<string>();
-            foreach (var column in columns)
+            var expandedColumns = new List<int>();
+            for (var colIndex = 0; colIndex < rows[0].Length; colIndex++)
             {
-                expandedColumns.Add(column);
-                if (!column.Contains('#'))
+                if (!columns[colIndex].Contains('#'))
                 {
-                    expandedColumns.Add(column);
+                    expandedColumns.Add(colIndex);
                 }
             }
 
-            var rows = new List<string>();
-            var rowCount = expandedColumns[0].Length;
-            for (var rowIndex = 0; rowIndex < rowCount; rowIndex++)
+            var expandedRows = new List<int>();
+            for (var rowIndex = 0; rowIndex < rows.Length; rowIndex++)
             {
-                var row = string.Empty;
-                for (var colIndex = 0; colIndex < expandedColumns.Count; colIndex++)
+                if (!rows[rowIndex].Contains('#'))
                 {
-                    row += expandedColumns[colIndex][rowIndex];
-                }
-                rows.Add(row);
-            }
-
-            var expandedRows = new List<string>();
-            foreach (var row in rows)
-            {
-                expandedRows.Add(row);
-                if (!row.Contains('#'))
-                {
-                    expandedRows.Add(row);
+                    expandedRows.Add(rowIndex);
                 }
             }
 
             var coordinates = new List<Coordinate>();
-            for (var rowIndex = 0; rowIndex < expandedRows.Count; rowIndex++)
+            for (var rowIndex = 0; rowIndex < rows.Length; rowIndex++)
             {
-                for (var colIndex = 0; colIndex < expandedRows[rowIndex].Length; colIndex++)
+                for (var colIndex = 0; colIndex < columns.Count; colIndex++)
                 {
                     coordinates.Add(new Coordinate
                     {
                         X = colIndex,
                         Y = rowIndex,
-                        Value = expandedRows[rowIndex][colIndex]
+                        Value = rows[rowIndex][colIndex]
                     });
                 }
             }
@@ -76,9 +59,11 @@
                     var first = galaxies.ElementAt(i);
                     var second = galaxies.ElementAt(j);
 
-                    var xDiff = Math.Abs(first.X - second.X);
-                    var yDiff = Math.Abs(first.Y - second.Y);
-                    overallDistance += xDiff + yDiff;
+                    overallDistance += Math.Abs(first.X - second.X) + Math.Abs(first.Y - second.Y);
+
+                    var expandedRowsToAdd = expandedRows.Count(rowIndex => rowIndex > Math.Min(first.Y, second.Y) && rowIndex < Math.Max(first.Y, second.Y));
+                    var expandedColsToAdd = expandedColumns.Count(colIndex => colIndex > Math.Min(first.X, second.X) && colIndex < Math.Max(first.X, second.X));
+                    overallDistance += expandedRowsToAdd + expandedColsToAdd;
                 }
             }
 
