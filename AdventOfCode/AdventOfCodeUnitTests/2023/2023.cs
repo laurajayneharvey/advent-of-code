@@ -232,12 +232,13 @@ namespace AdventOfCode.UnitTests
         }
 
         [TestMethod]
-        [DataRow(SampleInput.Day11, 0)]
-        [DataRow(RealInput.Day11, 0)]
-        public void Day11_Part2(string input, int expected)
+        [DataRow(SampleInput.Day11, 10, 1030)]
+        [DataRow(SampleInput.Day11, 100, 8410)]
+        [DataRow(RealInput.Day11, 1000000, 752936133304)]
+        public void Day11_Part2(string input, int expansion, long expected)
         {
             var program = new Day11_Part2();
-            var actual = program.Run(input);
+            var actual = program.Run(input, expansion);
             Assert.AreEqual(expected, actual);
         }
     }

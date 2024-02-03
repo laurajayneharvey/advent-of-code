@@ -4,9 +4,9 @@
     {
         private readonly Day11 _day11 = new();
 
-        public int? Run(string input)
+        public long Run(string input, int expansion)
         {
-            return 0;
+            return _day11.Run(input, expansion - 1);
         }
     }
 }

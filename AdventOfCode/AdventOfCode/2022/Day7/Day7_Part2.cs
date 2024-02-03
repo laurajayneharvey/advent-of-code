@@ -4,7 +4,7 @@
     {
         private readonly Day7 _day7 = new();
 
-        public int? Run(string input)
+        public int Run(string input)
         {
             var fileSystemItems = _day7.GetFileSystems(input);
 
@@ -14,7 +14,7 @@
             var needToFreeUp = requiredForUpdate - remainingDiskSpace;
             var directoryToDelete = fileSystemItems.Where(x => x.IsDirectory && x.Size >= needToFreeUp).OrderBy(y => y.Size).First();
 
-            return directoryToDelete.Size;
+            return directoryToDelete?.Size ?? 0;
         }
     }
 }
