@@ -6,7 +6,7 @@
 
         public int Run(string input)
         {
-            return _day12.Run(input);
+            return _day12.Run(input, true);
         }
     }
 }
