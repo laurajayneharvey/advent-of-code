@@ -4,7 +4,7 @@
     {
         private readonly Day12 _day12 = new();
 
-        public int Run(string input)
+        public long Run(string input)
         {
             return _day12.Run(input, true);
         }

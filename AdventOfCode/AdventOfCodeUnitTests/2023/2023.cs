@@ -246,7 +246,7 @@ namespace AdventOfCode.UnitTests
         [TestMethod]
         [DataRow(SampleInput.Day12, 21)]
         [DataRow(RealInput.Day12, 7843)]
-        public void Day12_Part1(string input, int expected)
+        public void Day12_Part1(string input, long expected)
         {
             var program = new Day12_Part1();
             var actual = program.Run(input);
@@ -255,8 +255,8 @@ namespace AdventOfCode.UnitTests
 
         [TestMethod]
         [DataRow(SampleInput.Day12, 525152)]
-        //[DataRow(RealInput.Day12, 0)]
-        public void Day12_Part2(string input, int expected)
+        [DataRow(RealInput.Day12, 10153896718999)]
+        public void Day12_Part2(string input, long expected)
         {
             var program = new Day12_Part2();
             var actual = program.Run(input);
