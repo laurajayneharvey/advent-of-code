@@ -273,6 +273,30 @@ namespace AdventOfCode.UnitTests
             var actual = program.Run(input);
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        [DataRow(SampleInput.Day13, 0)]
+        [DataRow(RealInput.Day13, 0)]
+        public void Day13_Part2(string input, int expected)
+        {
+        }
+
+        [TestMethod]
+        [DataRow(SampleInput.Day14, 136)]
+        [DataRow(RealInput.Day14, 0)]
+        public void Day14_Part1(string input, int expected)
+        {
+            var program = new Day14_Part1();
+            var actual = program.Run(input);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        [DataRow(SampleInput.Day14, 0)]
+        [DataRow(RealInput.Day14, 0)]
+        public void Day14_Part2(string input, int expected)
+        {
+        }
     }
 
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
