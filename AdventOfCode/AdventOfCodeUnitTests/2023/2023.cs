@@ -3,6 +3,7 @@ using AdventOfCode._2023.Day10;
 using AdventOfCode._2023.Day11;
 using AdventOfCode._2023.Day12;
 using AdventOfCode._2023.Day13;
+using AdventOfCode._2023.Day14;
 using AdventOfCode._2023.Day2;
 using AdventOfCode._2023.Day3;
 using AdventOfCode._2023.Day4;
@@ -283,7 +284,7 @@ namespace AdventOfCode.UnitTests
 
         [TestMethod]
         [DataRow(SampleInput.Day14, 136)]
-        [DataRow(RealInput.Day14, 0)]
+        [DataRow(RealInput.Day14, 108857)]
         public void Day14_Part1(string input, int expected)
         {
             var program = new Day14_Part1();
