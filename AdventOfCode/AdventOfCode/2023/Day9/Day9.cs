@@ -33,7 +33,7 @@
                 history = newHistoryLine;
             }
 
-            return lines.Sum(line => line[line.Count - 1]);
+            return lines.Sum(line => line[^1]);
         }
     }
 }

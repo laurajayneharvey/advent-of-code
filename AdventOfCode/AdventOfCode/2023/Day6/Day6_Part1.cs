@@ -2,7 +2,7 @@
 
 namespace AdventOfCode._2023.Day6
 {
-    public class Day6_Part1
+    public partial class Day6_Part1
     {
         private readonly Day6 _day6 = new();
 
@@ -29,7 +29,7 @@ namespace AdventOfCode._2023.Day6
             var time = lines[0].Replace("Time:", string.Empty).Trim();
             var distance = lines[1].Replace("Distance:", string.Empty).Trim();
 
-            var regex = new Regex(@"(\S+)|(\s+(?=\S))");
+            var regex = SpaceRegex();
             var timeMatches = regex.Matches(time);
             var times = timeMatches.Where(m => !string.IsNullOrWhiteSpace(m.Value)).Select(m => m.Value).ToList();
             var distanceMatches = regex.Matches(distance);
@@ -47,5 +47,8 @@ namespace AdventOfCode._2023.Day6
 
             return races;
         }
+
+        [GeneratedRegex(@"(\S+)|(\s+(?=\S))")]
+        private static partial Regex SpaceRegex();
     }
 }

@@ -2,7 +2,7 @@
 
 namespace AdventOfCode._2023.Day5
 {
-    public class Day5_Part2
+    public partial class Day5_Part2
     {
         public double Run(string input)
         {
@@ -64,7 +64,7 @@ namespace AdventOfCode._2023.Day5
         private static List<RangePart2> BuildSeedRanges(string table)
         {
             var seedRanges = new List<RangePart2>();
-            var seedLineParts = Regex.Split(table, ": ");
+            var seedLineParts = ColonSeparator().Split(table);
             var seeds = seedLineParts[1].Split(" ");
             for (var i = 0; i < seeds.Length; i++)
             {
@@ -185,6 +185,9 @@ namespace AdventOfCode._2023.Day5
 
             return destinationRanges;
         }
+
+        [GeneratedRegex(": ")]
+        private static partial Regex ColonSeparator();
     }
 
     public class RangePart2(double start, double end)
