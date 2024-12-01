@@ -2,6 +2,49 @@
 {
     public class Day1_Part2
     {
+        public int Run(string input)
+        {
+            var lines = input.Split("\r\n");
+            var sum = 0;
+
+            for (var i = 0; i < lines.Count(); i++)
+            {
+                var line = lines[i];
+                var lineLength = line.ToCharArray().Count();
+                char? firstDigit = '0';
+                char? lastDigit = '0';
+
+                for (var j = 0; j < lineLength; j++)
+                {
+                    var startIndex = 0;
+                    var endIndex = j + 1;
+                    var partial = line.Substring(startIndex, endIndex - startIndex);
+                    firstDigit = FindNumber(partial);
+                    if (firstDigit != null)
+                    {
+                        break;
+                    }
+                }
+
+                for (var j = 0; j < lineLength; j++)
+                {
+                    var startIndex = lineLength - 1 - j;
+                    var endIndex = lineLength;
+                    var partial = line.Substring(startIndex, endIndex - startIndex);
+                    lastDigit = FindNumber(partial);
+                    if (lastDigit != null)
+                    {
+                        break;
+                    }
+                }
+
+                var doubleDigit = int.Parse($"{firstDigit}{lastDigit}");
+                sum += doubleDigit;
+            }
+
+            return sum;
+        }
+
         private string ReplaceSpeltNumber(string input)
         {
             return input
@@ -25,6 +68,7 @@
             }
 
             input = ReplaceSpeltNumber(input);
+
             digits = input.ToCharArray().Where(c => char.IsNumber(c));
             if (digits.Count() > 0)
             {
@@ -32,51 +76,6 @@
             }
 
             return null;
-        }
-
-        public int Run(string input)
-        {
-            var lines = input.Split("\r\n");
-            var sum = 0;
-
-            for (var i = 0; i < lines.Count(); i++)
-            {
-                var line = lines[i];
-                var lineLength = line.ToCharArray().Count();
-                char? firstDigit = '0';
-                char? lastDigit = '0';
-
-                for (var j = 0; j < lineLength; j++)
-                {
-                    var startIndex = 0;
-                    var endIndex = j + 1;
-                    var length = endIndex - startIndex;
-                    var partial = line.Substring(startIndex, length);
-                    firstDigit = FindNumber(partial);
-                    if (firstDigit != null)
-                    {
-                        break;
-                    }
-                }
-
-                for (var j = 0; j < lineLength; j++)
-                {
-                    var startIndex = lineLength - 1 - j;
-                    var endIndex = lineLength;
-                    var length = endIndex - startIndex;
-                    var partial = line.Substring(startIndex, length);
-                    lastDigit = FindNumber(partial);
-                    if (lastDigit != null)
-                    {
-                        break;
-                    }
-                }
-
-                var doubleDigit = int.Parse($"{firstDigit}{lastDigit}");
-                sum += doubleDigit;
-            }
-
-            return sum;
         }
     }
 }
