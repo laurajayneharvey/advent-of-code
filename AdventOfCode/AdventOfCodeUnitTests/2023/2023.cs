@@ -1,4 +1,6 @@
 ﻿using AdventOfCode._2023.Day10;
+using AdventOfCode._2023.Day5;
+using AdventOfCode._2023.Day6;
 using AdventOfCode._2023.Day7;
 using AdventOfCode._2023.Day8;
 using AdventOfCode._2023.Day9;
@@ -67,31 +69,43 @@ namespace AdventOfCode.UnitTests
         }
 
         [TestMethod]
-        [DataRow(SampleInput.Day5, 0)]
-        [DataRow(RealInput.Day5, 0)]
-        public void Day5_Part1(string input, int expected)
+        [DataRow(SampleInput.Day5, 35)]
+        [DataRow(RealInput.Day5, 214922730)]
+        public void Day5_Part1(string input, double expected)
         {
+            var program = new Day5_Part1();
+            var actual = program.Run(input);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
-        [DataRow(SampleInput.Day5, 0)]
-        [DataRow(RealInput.Day5, 0)]
-        public void Day5_Part2(string input, int expected)
+        [DataRow(SampleInput.Day5, 46)]
+        [DataRow(RealInput.Day5, 148041808)]
+        public void Day5_Part2(string input, double expected)
         {
+            var program = new Day5_Part2();
+            var actual = program.Run(input);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
-        [DataRow(SampleInput.Day6, 0)]
-        [DataRow(RealInput.Day6, 0)]
+        [DataRow(SampleInput.Day6, 288)]
+        [DataRow(RealInput.Day6, 781200)]
         public void Day6_Part1(string input, int expected)
         {
+            var program = new Day6_Part1();
+            var actual = program.Run(input);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
-        [DataRow(SampleInput.Day6, 0)]
-        [DataRow(RealInput.Day6, 0)]
+        [DataRow(SampleInput.Day6, 71503)]
+        [DataRow(RealInput.Day6, 49240091)]
         public void Day6_Part2(string input, int expected)
         {
+            var program = new Day6_Part2();
+            var actual = program.Run(input);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
