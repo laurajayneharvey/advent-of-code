@@ -9,7 +9,7 @@
             var calorieCounts = _day1.CreateCalorieCounts(input);
 
             calorieCounts.Sort();
-            var length = calorieCounts.Count();
+            var length = calorieCounts.Count;
 
             var one = calorieCounts[length - 1];
             var two = calorieCounts[length - 2];

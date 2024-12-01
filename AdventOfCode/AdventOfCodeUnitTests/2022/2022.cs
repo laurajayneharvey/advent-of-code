@@ -223,7 +223,6 @@ namespace AdventOfCode.UnitTests
         [DataRow(RealInput.Day10, RealInput.Day10Output)] // "FBURHZCH"
         public void Day10_Part2(string input, string expected)
         {
-            // note - I have the rendered solution, will need to be able to return the result differently to suit this test
             var program = new Day10_Part2();
             var actual = program.Run(input);
             Assert.AreEqual(expected, actual);

@@ -103,8 +103,6 @@
                                     corner = null; // finished assessing a pair of corners
                                 }
                                 break;
-                            //case 'S':
-                            //    break;
                             case '-':
                             default:
                                 break;

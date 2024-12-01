@@ -45,7 +45,7 @@
             return fileSystemItems;
         }
 
-        private void CalculateTotalSizes(List<FileSystemItem> fileSystemItems)
+        private static void CalculateTotalSizes(List<FileSystemItem> fileSystemItems)
         {
             while (fileSystemItems.Any(x => IsUncalculatedButChildrenCalculated(fileSystemItems, x)))
             {
@@ -61,28 +61,15 @@
             }
         }
 
-        private bool IsUncalculatedButChildrenCalculated(List<FileSystemItem> fileSystemItems, FileSystemItem x)
+        private static bool IsUncalculatedButChildrenCalculated(List<FileSystemItem> fileSystemItems, FileSystemItem x)
         {
             return x.IsDirectory && x.Size == null && fileSystemItems.Where(y => y.Parent == x).All(z => z.Size != null);
-        }
-
-        private int StepsToTop(List<FileSystemItem> fileSystemItems, FileSystemItem fileSystemItem)
-        {
-            var steps = 0;
-            var current = fileSystemItem;
-            while (current.Parent != null)
-            {
-                current = current.Parent;
-                steps++;
-            }
-
-            return steps;
         }
     }
 
     public class FileSystemItem
     {
-        public string Name { get; set; }
+        public required string Name { get; set; }
         public FileSystemItem? Parent { get; set; }
         public bool IsDirectory { get; set; }
         public int? Size { get; set; }

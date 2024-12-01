@@ -10,7 +10,7 @@
             return UseDijkstraBackwards(map);
         }
 
-        private int UseDijkstraBackwards(List<MapItem> map)
+        private static int UseDijkstraBackwards(List<MapItem> map)
         {
             map.First(x => x.IsDestination).Distance = 0;
             var current = map.First(x => x.IsDestination);
@@ -38,7 +38,7 @@
             }
         }
 
-        private List<MapItem> GetNeighbours(MapItem currentItem, List<MapItem> map)
+        private static List<MapItem> GetNeighbours(MapItem currentItem, List<MapItem> map)
         {
             var possibleNeighbours = new List<MapItem?>
             {

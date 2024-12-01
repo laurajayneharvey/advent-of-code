@@ -10,7 +10,7 @@
             return UseDijkstra(map);
         }
 
-        private int UseDijkstra(List<MapItem> map)
+        private static int UseDijkstra(List<MapItem> map)
         {
             map.First(x => x.IsSource).Distance = 0;
             var current = map.First(x => x.IsSource);
@@ -36,7 +36,7 @@
             }
         }
 
-        private List<MapItem> GetNeighbours(MapItem currentItem, List<MapItem> map)
+        private static List<MapItem> GetNeighbours(MapItem currentItem, List<MapItem> map)
         {
             var neighbours = new List<MapItem>();
             var width = map.Max(item => item.X);

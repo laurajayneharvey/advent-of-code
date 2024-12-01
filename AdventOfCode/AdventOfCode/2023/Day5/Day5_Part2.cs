@@ -16,12 +16,12 @@ namespace AdventOfCode._2023.Day5
                 ranges = GetNextRanges(ranges, almanacEntry);
             }
 
-            ranges = ranges.OrderBy(x => x.Start).ToList();
+            ranges = [.. ranges.OrderBy(x => x.Start)];
 
             return ranges.First().Start;
         }
 
-        private List<AlmanacEntryPart2> BuildAlmanac(IEnumerable<string> tables)
+        private static List<AlmanacEntryPart2> BuildAlmanac(IEnumerable<string> tables)
         {
             var almanac = new List<AlmanacEntryPart2>();
             tables.ToList().ForEach(table =>
@@ -61,12 +61,12 @@ namespace AdventOfCode._2023.Day5
             return almanac;
         }
 
-        private List<RangePart2> BuildSeedRanges(string table)
+        private static List<RangePart2> BuildSeedRanges(string table)
         {
             var seedRanges = new List<RangePart2>();
             var seedLineParts = Regex.Split(table, ": ");
             var seeds = seedLineParts[1].Split(" ");
-            for (var i = 0; i < seeds.Count(); i++)
+            for (var i = 0; i < seeds.Length; i++)
             {
                 if (i % 2 == 0)
                 {
@@ -79,7 +79,7 @@ namespace AdventOfCode._2023.Day5
             return seedRanges;
         }
 
-        private bool HasIntersection(RangePart2 range, AlmanacRange almanacRange)
+        private static bool HasIntersection(RangePart2 range, AlmanacRange almanacRange)
         {
             var rangeStartIsInAlmanacRange = range.Start >= almanacRange.SourceStart && range.Start <= almanacRange.SourceEnd;
             var rangeEndIsInAlmanacRange = range.End >= almanacRange.SourceStart && range.End <= almanacRange.SourceEnd;
@@ -94,7 +94,7 @@ namespace AdventOfCode._2023.Day5
             return equal || whollyContained || whollyContains || rangeStartIsInAlmanacRange || rangeEndIsInAlmanacRange;
         }
 
-        private List<RangePart2> GetIntersectionRanges(RangePart2 sourceRange, IEnumerable<AlmanacRange> almanacRangesWithIntersection)
+        private static List<RangePart2> GetIntersectionRanges(RangePart2 sourceRange, IEnumerable<AlmanacRange> almanacRangesWithIntersection)
         {
             var almanacRange = almanacRangesWithIntersection.First();
 
@@ -111,7 +111,7 @@ namespace AdventOfCode._2023.Day5
             if (equal || whollyContained)
             {
                 var intersection = new RangePart2(sourceRange.Start + almanacRange.SourceToDestination, sourceRange.End + almanacRange.SourceToDestination);
-                return new List<RangePart2> { intersection };
+                return [intersection];
             }
             else if (whollyContains || rangeStartIsInAlmanacRange || rangeEndIsInAlmanacRange)
             {
@@ -151,10 +151,10 @@ namespace AdventOfCode._2023.Day5
                 return destinationRanges;
             }
 
-            return new List<RangePart2>();
+            return [];
         }
 
-        private List<RangePart2> GetNextRanges(RangePart2 sourceRange, AlmanacEntryPart2 almanacEntry)
+        private static List<RangePart2> GetNextRanges(RangePart2 sourceRange, AlmanacEntryPart2 almanacEntry)
         {
             var destinationRanges = new List<RangePart2>();
 
@@ -174,7 +174,7 @@ namespace AdventOfCode._2023.Day5
             return destinationRanges;
         }
 
-        private List<RangePart2> GetNextRanges(List<RangePart2> sourceRanges, AlmanacEntryPart2 almanacEntry)
+        private static List<RangePart2> GetNextRanges(List<RangePart2> sourceRanges, AlmanacEntryPart2 almanacEntry)
         {
             var destinationRanges = new List<RangePart2>();
 
@@ -186,29 +186,23 @@ namespace AdventOfCode._2023.Day5
             return destinationRanges;
         }
     }
-}
 
-public class RangePart2
-{
-    public RangePart2(double start, double end)
+    public class RangePart2(double start, double end)
     {
-        Start = start;
-        End = end;
+        public double Start = start;
+        public double End = end;
     }
 
-    public double Start;
-    public double End;
-}
+    public class AlmanacRange
+    {
+        public double SourceToDestination;
+        public double SourceStart;
+        public double SourceEnd;
+    }
 
-public class AlmanacRange
-{
-    public double SourceToDestination;
-    public double SourceStart;
-    public double SourceEnd;
-}
-
-public class AlmanacEntryPart2
-{
-    public string Destination;
-    public List<AlmanacRange> Ranges;
+    public class AlmanacEntryPart2
+    {
+        public required string Destination;
+        public List<AlmanacRange> Ranges = [];
+    }
 }

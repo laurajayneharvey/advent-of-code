@@ -23,7 +23,7 @@ namespace AdventOfCode._2023.Day6
             return product;
         }
 
-        private IList<Race> GetRaces(string input)
+        private static List<Race> GetRaces(string input)
         {
             var lines = input.Split("\r\n");
             var time = lines[0].Replace("Time:", string.Empty).Trim();

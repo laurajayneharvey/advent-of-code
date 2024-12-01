@@ -62,7 +62,7 @@ namespace AdventOfCode._2023.Day5
 
                     if (matchingRange != null)
                     {
-                        source = source + matchingRange.SourceToDestination;
+                        source += matchingRange.SourceToDestination;
                     }
                 }
 
@@ -72,17 +72,17 @@ namespace AdventOfCode._2023.Day5
             return minLocation;
         }
     }
-}
 
-public class Range
-{
-    public double SourceStart;
-    public double SourceEnd;
-    public double SourceToDestination;
-}
+    public class Range
+    {
+        public double SourceStart;
+        public double SourceEnd;
+        public double SourceToDestination;
+    }
 
-public class AlmanacEntry
-{
-    public string Destination;
-    public List<Range> Ranges;
+    public class AlmanacEntry
+    {
+        public required string Destination;
+        public List<Range> Ranges = [];
+    }
 }

@@ -5,16 +5,16 @@
         public List<List<char>> TransposeSquareMatrix(List<List<char>> matrix)
         {
             var transposed = new List<List<char>>();
-            for (int i = 0; i < matrix.Count(); i++)
+            for (int i = 0; i < matrix.Count; i++)
             {
-                transposed.Add(new List<char>());
+                transposed.Add([]);
                 for (int j = 0; j < matrix.Count; j++)
                 {
                     transposed[i].Add('x');
                 }
             }
 
-            for (int i = 0; i < matrix.Count(); i++)
+            for (int i = 0; i < matrix.Count; i++)
             {
                 for (int j = 0; j < matrix.Count; j++)
                 {
@@ -30,7 +30,7 @@
             var matrix = new List<List<char>>();
             foreach (string line in lines)
             {
-                matrix.Add(line.ToCharArray().ToList());
+                matrix.Add([.. line.ToCharArray()]);
             }
 
             return matrix;
