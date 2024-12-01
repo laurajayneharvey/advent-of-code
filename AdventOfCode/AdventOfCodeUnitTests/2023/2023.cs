@@ -254,7 +254,7 @@ namespace AdventOfCode.UnitTests
         }
 
         [TestMethod]
-        //[DataRow(SampleInput.Day12, 0)]
+        [DataRow(SampleInput.Day12, 525152)]
         //[DataRow(RealInput.Day12, 0)]
         public void Day12_Part2(string input, int expected)
         {
