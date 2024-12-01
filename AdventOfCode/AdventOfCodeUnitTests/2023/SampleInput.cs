@@ -8,7 +8,11 @@
         public const string Day4 = @"";
         public const string Day5 = @"";
         public const string Day6 = @"";
-        public const string Day7 = @"";
+        public const string Day7 = @"32T3K 765
+T55J5 684
+KK677 28
+KTJJT 220
+QQQJA 483";
         public const string Day8a = @"RL
 
 AAA = (BBB, CCC)
