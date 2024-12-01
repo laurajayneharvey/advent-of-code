@@ -1,4 +1,4 @@
-﻿namespace AdventOfCodeUnitTests
+﻿namespace AdventOfCodeUnitTests._2022
 {
     public class SampleInput
     {
