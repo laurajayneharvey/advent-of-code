@@ -4,12 +4,7 @@ namespace AdventOfCode._2023.Day6
 {
     public class Day6_Part1
     {
-        private readonly Day6 _day6;
-
-        public Day6_Part1()
-        {
-            _day6 = new Day6();
-        }
+        private readonly Day6 _day6 = new();
 
         public int Run(string input)
         {

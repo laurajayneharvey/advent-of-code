@@ -2,12 +2,7 @@
 {
     public class Day6_Part2
     {
-        private readonly Day6 _day6;
-
-        public Day6_Part2()
-        {
-            _day6 = new Day6();
-        }
+        private readonly Day6 _day6 = new();
 
         public int Run(string input)
         {

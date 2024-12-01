@@ -48,7 +48,7 @@
 
                 var oldStack = stacks[oldStackIndex];
 
-                var oldStackPart1 = oldStack.Skip(0).Take(displacement);
+                var oldStackPart1 = oldStack.Take(displacement);
                 if (reverse)
                 {
                     oldStackPart1 = oldStackPart1.Reverse();

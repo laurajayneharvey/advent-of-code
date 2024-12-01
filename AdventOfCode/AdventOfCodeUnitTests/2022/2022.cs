@@ -188,7 +188,7 @@ namespace AdventOfCode.UnitTests
         }
 
         [TestMethod]
-        [DataRow(SampleInput.Day9, 13)]
+        [DataRow(SampleInput.Day9a, 13)]
         [DataRow(RealInput.Day9, 6090)]
         public void Day9_Part1(string input, int expected)
         {
@@ -198,7 +198,8 @@ namespace AdventOfCode.UnitTests
         }
 
         [TestMethod]
-        [DataRow(SampleInput.Day9, 36)]
+        [DataRow(SampleInput.Day9a, 1)]
+        [DataRow(SampleInput.Day9b, 36)]
         [DataRow(RealInput.Day9, 2566)]
         public void Day9_Part2(string input, int expected)
         {
