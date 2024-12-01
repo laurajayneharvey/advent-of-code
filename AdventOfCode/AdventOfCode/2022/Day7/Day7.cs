@@ -1,6 +1,4 @@
-﻿using System.Text.RegularExpressions;
-
-namespace AdventOfCode._2022.Day7
+﻿namespace AdventOfCode._2022.Day7
 {
     public class Day7
     {
@@ -9,8 +7,7 @@ namespace AdventOfCode._2022.Day7
             var fileSystemItems = new List<FileSystemItem> { new() { Name = "/", Parent = null, IsDirectory = true } };
             var currentDirectory = fileSystemItems.First();
 
-            var regex = new Regex("\r\n");
-            var commands = regex.Split(input).ToList();
+            var commands = input.Split("\r\n").ToList();
             commands = commands.Skip(2).ToList();
 
             foreach (var command in commands)

@@ -1,20 +1,15 @@
-﻿using System.Text.RegularExpressions;
-
-namespace AdventOfCode._2022.Day11
+﻿namespace AdventOfCode._2022.Day11
 {
     public class Day11
     {
         public List<Monkey> CreateMonkies(string input)
         {
-            var lineRegex = new Regex("\r\n");
-            var doubleLineRegex = new Regex("\r\n\r\n");
-
-            var monkeySections = doubleLineRegex.Split(input);
+            var monkeySections = input.Split("\r\n\r\n");
 
             var monkies = new List<Monkey>();
             foreach (var monkeySection in monkeySections)
             {
-                var monkeyLines = lineRegex.Split(monkeySection);
+                var monkeyLines = monkeySection.Split("\r\n");
                 var startingItems = monkeyLines[1].Split(":")[1].Split(",").Select(x => ulong.Parse(x.Trim())).ToList();
                 var operatorItems = monkeyLines[2].Split("=")[1].Trim().Split(" ");
                 var test = ulong.Parse(monkeyLines[3].Split(":")[1].Replace(" divisible by ", string.Empty));

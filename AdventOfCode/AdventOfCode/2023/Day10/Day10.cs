@@ -1,13 +1,10 @@
-﻿using System.Text.RegularExpressions;
-
-namespace AdventOfCode._2023.Day10
+﻿namespace AdventOfCode._2023.Day10
 {
     public class Day10
     {
         public (List<Tile> tiles, int width, int height) GetTiles(string input)
         {
-            var regex = new Regex("\r\n");
-            var rows = regex.Split(input);
+            var rows = input.Split("\r\n");
             var tiles = CreateTiles(rows.ToList());
 
             var width = rows[0].ToCharArray().Count();
