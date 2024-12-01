@@ -1,4 +1,4 @@
-﻿namespace AdventOfCode._2023.Day13
+﻿namespace AdventOfCode._2023.Day14
 {
     public class Day14_Part1
     {
