@@ -84,7 +84,7 @@ namespace AdventOfCode._2022.Day13
 
             var array = arrays.TryGetValue((pairIndex, item), out var _) ? arrays[(pairIndex, item)] : item;
 
-            var items = array.Substring(1, array.Length - 2).Split(',').ToList();
+            var items = array.Substring(1, array.Length - 2).Split(",").ToList();
 
             if (items.Count == 1 && items.First() == string.Empty)
             {
