@@ -13,4 +13,5 @@ for (var i = 0; i < lines.length; i++) {
   var doubleDigit = parseInt(`${firstDigit}${lastDigit}`);
   sum += doubleDigit;
 }
+
 console.log(sum);

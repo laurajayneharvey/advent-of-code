@@ -33,6 +33,7 @@ xtwone3four
 4nineeightseven2
 zoneight234
 7pqrstsixteen`;
+
 var lines = input.split('\n');
 var sum = 0;
 for (var i = 0; i < lines.length; i++) {
@@ -60,4 +61,5 @@ for (var i = 0; i < lines.length; i++) {
 	var doubleDigit = parseInt(`${firstDigit}${lastDigit}`);
 	sum += doubleDigit;
 }
+
 console.log(sum);
