@@ -199,7 +199,7 @@ LJ.LJ";
             loops.Add(new List<Tile> { start, tile });
         }
 
-        var stepCount = 0;
+        var stepCount = 1; // first tile already added
         while (loops.Any())
         {
             var oldLoops = loops;
@@ -223,7 +223,7 @@ LJ.LJ";
             stepCount++;
         }
 
-        Console.WriteLine((stepCount + 1) / 2);
+        Console.WriteLine(stepCount / 2);
     }
 }
 
