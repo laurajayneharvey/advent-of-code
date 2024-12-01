@@ -22,11 +22,6 @@
                 var columns = GetColumns(rows);
                 var leftCount = GetBeforeReflection(columns);
                 overall += leftCount;
-
-                if (aboveCount == 0 && leftCount == 0)
-                {
-                    overall += 0;
-                }
             }
 
             return overall;
