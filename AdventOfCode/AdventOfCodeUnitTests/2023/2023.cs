@@ -7,6 +7,7 @@ using AdventOfCode._2023.Day14;
 using AdventOfCode._2023.Day15;
 using AdventOfCode._2023.Day16;
 using AdventOfCode._2023.Day17;
+using AdventOfCode._2023.Day18;
 using AdventOfCode._2023.Day2;
 using AdventOfCode._2023.Day3;
 using AdventOfCode._2023.Day4;
@@ -204,6 +205,7 @@ namespace AdventOfCode.UnitTests
             Assert.AreEqual(expected, actual);
         }
 
+        // TODO can use the shoelace formula for day 10
         [TestMethod]
         [DataRow(SampleInput.Day10a, 4)]
         [DataRow(SampleInput.Day10b, 8)]
@@ -350,6 +352,23 @@ namespace AdventOfCode.UnitTests
         [DataRow(SampleInput.Day17, 0)]
         [DataRow(RealInput.Day17, 0)]
         public void Day17_Part2(string input, int expected)
+        {
+        }
+
+        [TestMethod]
+        [DataRow(SampleInput.Day18, 62)]
+        [DataRow(RealInput.Day18, 35991)]
+        public void Day18_Part1(string input, int expected)
+        {
+            var program = new Day18_Part1();
+            var actual = program.Run(input);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        [DataRow(SampleInput.Day18, 0)]
+        [DataRow(RealInput.Day18, 0)]
+        public void Day18_Part2(string input, int expected)
         {
         }
     }
