@@ -4,6 +4,7 @@ using AdventOfCode._2023.Day11;
 using AdventOfCode._2023.Day12;
 using AdventOfCode._2023.Day13;
 using AdventOfCode._2023.Day14;
+using AdventOfCode._2023.Day15;
 using AdventOfCode._2023.Day2;
 using AdventOfCode._2023.Day3;
 using AdventOfCode._2023.Day4;
@@ -296,6 +297,23 @@ namespace AdventOfCode.UnitTests
         [DataRow(SampleInput.Day14, 0)]
         [DataRow(RealInput.Day14, 0)]
         public void Day14_Part2(string input, int expected)
+        {
+        }
+
+        [TestMethod]
+        [DataRow(SampleInput.Day15, 1320)]
+        [DataRow(RealInput.Day15, 508552)]
+        public void Day15_Part1(string input, int expected)
+        {
+            var program = new Day15_Part1();
+            var actual = program.Run(input);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        [DataRow(SampleInput.Day15, 0)]
+        [DataRow(RealInput.Day15, 0)]
+        public void Day15_Part2(string input, int expected)
         {
         }
     }
