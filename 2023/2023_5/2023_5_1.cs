@@ -5,9 +5,9 @@ using System.Linq;
 
 public class Range
 {
-	public float SourceStart;
-	public float SourceEnd;
-	public float SourceToDestination;
+	public double SourceStart;
+	public double SourceEnd;
+	public double SourceToDestination;
 }
 
 public class AlmanacEntry
@@ -56,15 +56,13 @@ humidity-to-location map:
 		
 		var tables = Regex.Split(input, "\n\n");
 		
-		// build almanac
-		var almanac = new Dictionary<string, AlmanacEntry>();
-		var seeds = new List<float>();
+		var almanac = new List<AlmanacEntry>();
+		var seeds = new List<double>();
 		var tableIndex = 0;
 		tables.ToList().ForEach(table => {
 			if (tableIndex == 0) {
-				// seeds
 				var seedParts = Regex.Split(table, ": ");
-				seeds = seedParts[1].Split(" ").Select(s => float.Parse(s)).ToList();
+				seeds = seedParts[1].Split(" ").Select(s => double.Parse(s)).ToList();
 				tableIndex++;
 				return;
 			}
@@ -80,9 +78,9 @@ humidity-to-location map:
 			var ranges = new List<Range>();
 			for (var i = 0; i < rangeLines.Count; i++) {
 				var parts = rangeLines[i].Split(" ");
-				var destinationStart = float.Parse(parts[0]);
-				var sourceStart = float.Parse(parts[1]);
-				var rangeLength = float.Parse(parts[2]);
+				var destinationStart = double.Parse(parts[0]);
+				var sourceStart = double.Parse(parts[1]);
+				var rangeLength = double.Parse(parts[2]);
 				var range = new Range {
 					SourceStart = sourceStart,
 					SourceEnd = sourceStart + rangeLength - 1,
@@ -91,31 +89,21 @@ humidity-to-location map:
 				ranges.Add(range);
 			}
 
-			almanac.Add(source, new AlmanacEntry {
+			almanac.Add(new AlmanacEntry {
 				Destination = destination,
 				Ranges = ranges
 			});
 		});
 		
-		var minLocation = float.MaxValue;
-		var seedRangeTable = tables[0];		
-		var seedLineParts = Regex.Split(seedRangeTable, ": ");
-		var seedRanges = seedLineParts[1].Split(" ");
+		var minLocation = double.MaxValue;
 		foreach (var seed in seeds) {
 			var source = seed;
-			var sourceName = "seed";
-
-			while (almanac.TryGetValue(sourceName, out var almanacEntry)) {
-				var destination = source;
-
+			foreach (var almanacEntry in almanac) {
 				var matchingRange = almanacEntry.Ranges.FirstOrDefault(range => source >= range.SourceStart && source <= range.SourceEnd);
 
 				if (matchingRange != null) {
-					destination = source + matchingRange.SourceToDestination;
+					source = source + matchingRange.SourceToDestination;
 				}
-
-				source = destination;
-				sourceName = almanacEntry.Destination;
 			}
 
 			minLocation = Math.Min(minLocation, source);
