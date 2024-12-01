@@ -13,9 +13,9 @@ var input = `1000
 
 10000`;
 
-var elfs = input.split('\n\n');
+var elves = input.split('\n\n');
 var calorieCounts = [];
-elfs.forEach(elf => {
+elves.forEach(elf => {
 	var foods = elf.split('\n');
 	var sum = foods.reduce(function (x, y) {
         return parseInt(x) + parseInt(y);
