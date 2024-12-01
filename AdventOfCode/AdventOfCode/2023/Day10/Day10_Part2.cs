@@ -4,7 +4,7 @@
     {
         private readonly Day10 _day10 = new();
 
-        public int? Run(string input)
+        public int Run(string input)
         {
             var (tiles, width, height) = _day10.GetTiles(input);
             var (mainLoop, stepCount) = _day10.GetMainLoop(tiles, width, height);
