@@ -137,6 +137,11 @@
 
         private static Coordinate? GetNewCoordinate(List<Coordinate> coordinates, Path path)
         {
+            if (path.CurrentCoordinate == null)
+            {
+                return null;
+            }
+
             var x = path.CurrentCoordinate.X;
             var y = path.CurrentCoordinate.Y;
 

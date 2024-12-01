@@ -59,7 +59,7 @@
             return (mainLoop, stepCount);
         }
 
-        private readonly IDictionary<char, RuleSet> rules = new Dictionary<char, RuleSet> {
+        private readonly Dictionary<char, RuleSet> rules = new Dictionary<char, RuleSet> {
             {'|', new RuleSet { Up = ['7','F','|'], Down = ['J','L','|']}},
             {'-', new RuleSet { Left = ['F','L','-'], Right = ['7', 'J', '-']}},
             {'7', new RuleSet { Down = ['J','L','|'], Left = ['F', 'L', '-']}},

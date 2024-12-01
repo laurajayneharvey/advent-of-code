@@ -2,7 +2,7 @@
 
 namespace AdventOfCode._2023.Day5
 {
-    public class Day5_Part1
+    public partial class Day5_Part1
     {
         public double Run(string input)
         {
@@ -15,7 +15,7 @@ namespace AdventOfCode._2023.Day5
             {
                 if (tableIndex == 0)
                 {
-                    var seedParts = Regex.Split(table, ": ");
+                    var seedParts = ColonSeparator().Split(table);
                     seeds = seedParts[1].Split(" ").Select(s => double.Parse(s)).ToList();
                     tableIndex++;
                     return;
@@ -71,6 +71,9 @@ namespace AdventOfCode._2023.Day5
 
             return minLocation;
         }
+
+        [GeneratedRegex(": ")]
+        private static partial Regex ColonSeparator();
     }
 
     public class Range

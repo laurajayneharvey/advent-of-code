@@ -25,7 +25,7 @@ namespace AdventOfCode._2023.Day15
             {
                 currentValue += ascii[i];
                 currentValue *= 17;
-                currentValue = currentValue % 256;
+                currentValue %= 256;
             }
             return currentValue;
         }

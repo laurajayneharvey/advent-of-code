@@ -59,10 +59,10 @@
             .Replace("nine", "9");
         }
 
-        private char? FindNumber(string input)
+        private static char? FindNumber(string input)
         {
             var digits = input.ToCharArray().Where(c => char.IsNumber(c));
-            if (digits.Count() > 0)
+            if (digits.Any())
             {
                 return digits.ElementAt(0);
             }
@@ -70,7 +70,7 @@
             input = ReplaceSpeltNumber(input);
 
             digits = input.ToCharArray().Where(c => char.IsNumber(c));
-            if (digits.Count() > 0)
+            if (digits.Any())
             {
                 return digits.ElementAt(0);
             }
