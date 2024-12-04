@@ -1,6 +1,4 @@
-﻿using System.Linq;
-
-namespace AdventOfCode._2024.Day1
+﻿namespace AdventOfCode._2024.Day1
 {
     public class Day1_Part2
     {

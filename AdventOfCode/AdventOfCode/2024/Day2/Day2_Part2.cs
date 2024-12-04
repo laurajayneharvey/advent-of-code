@@ -1,7 +1,4 @@
-﻿using System.Linq;
-using System.Runtime.CompilerServices;
-
-namespace AdventOfCode._2024.Day2
+﻿namespace AdventOfCode._2024.Day2
 {
     public class Day2_Part2
     {
