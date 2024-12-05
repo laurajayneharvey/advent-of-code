@@ -1,5 +1,4 @@
-﻿using AdventOfCode._2023.Day10;
-using System.Drawing;
+﻿using System.Drawing;
 
 namespace AdventOfCode._2024.Day4
 {
