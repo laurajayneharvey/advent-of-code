@@ -3,6 +3,8 @@ using AdventOfCode._2024.Day2;
 using AdventOfCode._2024.Day3;
 using AdventOfCode._2024.Day4;
 using AdventOfCode._2024.Day5;
+using AdventOfCode._2024.Day6;
+using AdventOfCode._2024.Day7;
 using AdventOfCodeUnitTests._2024;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -107,6 +109,47 @@ namespace AdventOfCode.UnitTests
         public void Day5_Part2(string input, int expected)
         {
             var program = new Day5_Part2();
+            var actual = program.Run(input);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        [DataRow(SampleInput.Day6, 41)]
+        [DataRow(RealInput.Day6, 5551)]
+        public void Day6_Part1(string input, int expected)
+        {
+            var program = new Day6_Part1();
+            var actual = program.Run(input);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        [DataRow(SampleInput.Day6, 6)]
+        [SkipDataRow("brute force, unbelievably slow and contains a hack for the particular case", RealInput.Day6, 1939)]
+        public void Day6_Part2(string input, int expected)
+        {
+            var program = new Day6_Part2();
+            var actual = program.Run(input);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        [DataRow(SampleInput.Day7, 3749)]
+        [SkipDataRow("slow", RealInput.Day7, 1620690235709)]
+
+        public void Day7_Part1(string input, long expected)
+        {
+            var program = new Day7_Part1();
+            var actual = program.Run(input);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        [DataRow(SampleInput.Day7, 11387)]
+        [DataRow(RealInput.Day7, 145397611075341)]
+        public void Day7_Part2(string input, long expected)
+        {
+            var program = new Day7_Part2();
             var actual = program.Run(input);
             Assert.AreEqual(expected, actual);
         }
