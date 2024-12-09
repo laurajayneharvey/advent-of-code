@@ -1,4 +1,7 @@
-﻿namespace AdventOfCodeUnitTests._2024
+﻿using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Drawing;
+
+namespace AdventOfCodeUnitTests._2024
 {
     public class SampleInput
     {
@@ -92,6 +95,8 @@ MXMXAXMASX";
 ........A...
 .........A..
 ............
-............";
+............"
+        ;
+        public const string Day9 = @"2333133121414131402";
     }
 }
