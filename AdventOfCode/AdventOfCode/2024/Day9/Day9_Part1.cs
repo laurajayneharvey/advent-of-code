@@ -1,6 +1,4 @@
-﻿using System.Numerics;
-
-namespace AdventOfCode._2024.Day9
+﻿namespace AdventOfCode._2024.Day9
 {
     public class Day9_Part1
     {
