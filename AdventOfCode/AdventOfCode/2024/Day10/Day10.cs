@@ -1,11 +1,10 @@
-﻿using AdventOfCode._2024.Day6;
-using System.Drawing;
+﻿using System.Drawing;
 
 namespace AdventOfCode._2024.Day10
 {
-    public class Day10_Part1
+    public class Day10
     {
-        public long Run(string input)
+        public int Run(string input, bool useDistinct = false)
         {
             var positions = GetPositions(input);
 
@@ -22,7 +21,7 @@ namespace AdventOfCode._2024.Day10
                     {
                         newList.AddRange(old.NextTo);
                     }
-                    oldList = newList.Distinct().ToList();
+                    oldList = (useDistinct ? newList.Distinct() : newList).ToList();
                 }
 
                 trailHeadScoreSum += oldList.Count;
@@ -31,7 +30,7 @@ namespace AdventOfCode._2024.Day10
             return trailHeadScoreSum;
         }
 
-        private static List<Position> GetPositions(string input)
+        private List<Position> GetPositions(string input)
         {
             var rows = input.Split("\r\n");
             var positions = new List<Position>();
