@@ -109,5 +109,7 @@ MXMXAXMASX";
 32019012
 01329801
 10456732";
+
+        public const string Day11 = @"125 17";
     }
 }
