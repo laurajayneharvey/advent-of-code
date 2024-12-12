@@ -111,5 +111,27 @@ MXMXAXMASX";
 10456732";
 
         public const string Day11 = @"125 17";
+
+        public const string Day12a = @"AAAA
+BBCD
+BBCC
+EEEC";
+
+        public const string Day12b = @"OOOOO
+OXOXO
+OOOOO
+OXOXO
+OOOOO";
+
+        public const string Day12c = @"RRRRIICCFF
+RRRRIICCCF
+VVRRRCCFFF
+VVRCCCJFFF
+VVVVCJJCFE
+VVIVCCJJEE
+VVIIICJJEE
+MIIIIIJJEE
+MIIISIJEEE
+MMMISSJEEE";
     }
 }

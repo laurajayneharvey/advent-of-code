@@ -30,7 +30,7 @@ namespace AdventOfCode._2024.Day10
             return trailHeadScoreSum;
         }
 
-        private List<Position> GetPositions(string input)
+        private static List<Position> GetPositions(string input)
         {
             var rows = input.Split("\r\n");
             var positions = new List<Position>();
