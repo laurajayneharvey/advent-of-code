@@ -280,10 +280,20 @@ namespace AdventOfCode.UnitTests
         [DataRow(SampleInput.Day13, 480)]
         [DataRow(RealInput.Day13, 31897)]
 
-        public void Day13_Part1(string input, int expected)
+        public void Day13_Part1(string input, long expected)
         {
-            var program = new Day13_Part1();
+            var program = new Day13();
             var actual = program.Run(input);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        [DataRow(RealInput.Day13, 87596249540359)]
+
+        public void Day13_Part2(string input, long expected)
+        {
+            var program = new Day13();
+            var actual = program.Run(input, true);
             Assert.AreEqual(expected, actual);
         }
     }

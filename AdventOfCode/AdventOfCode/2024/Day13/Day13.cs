@@ -1,21 +1,27 @@
 ﻿namespace AdventOfCode._2024.Day13
 {
-    public class Day13_Part1
+    public class Day13
     {
-        public int Run(string input)
+        public long Run(string input, bool part2 = false)
         {
             var machines = input.Split("\r\n\r\n");
 
-            var cost = 0;
+            long cost = 0;
             foreach (var machine in machines)
             {
                 var lines = machine.Split("\r\n");
-                var ax = int.Parse(lines[0].Split("X+")[1].Split(",")[0]);
-                var ay = int.Parse(lines[0].Split("Y+")[1]);
-                var bx = int.Parse(lines[1].Split("X+")[1].Split(",")[0]);
-                var by = int.Parse(lines[1].Split("Y+")[1]);
-                var prizex = int.Parse(lines[2].Split("X=")[1].Split(",")[0]);
-                var prizey = int.Parse(lines[2].Split("Y=")[1]);
+                var ax = long.Parse(lines[0].Split("X+")[1].Split(",")[0]);
+                var ay = long.Parse(lines[0].Split("Y+")[1]);
+                var bx = long.Parse(lines[1].Split("X+")[1].Split(",")[0]);
+                var by = long.Parse(lines[1].Split("Y+")[1]);
+                var prizex = long.Parse(lines[2].Split("X=")[1].Split(",")[0]);
+                var prizey = long.Parse(lines[2].Split("Y=")[1]);
+
+                if (part2)
+                {
+                    prizex += 10000000000000;
+                    prizey += 10000000000000;
+                }
 
                 //solve intersecting linear equations by substitution
                 //e.g.
@@ -28,8 +34,8 @@
                 //5550a = 444,000 => a = 80
                 //94(80) + 22b = 8400 =>n7520 + 22b = 8400 => 22b = 880 => b = 40
 
-                int a = ((prizex * by) - (prizey * bx)) / ((ax * by) - (ay * bx));
-                int b = (prizex - (ax * a)) / bx;
+                long a = ((prizex * by) - (prizey * bx)) / ((ax * by) - (ay * bx));
+                long b = (prizex - (ax * a)) / bx;
 
                 if (
                     ((a * ax) + (b * bx) == prizex) &&
@@ -41,11 +47,6 @@
             }
 
             return cost;
-        }
-
-        private static bool IsInteger(float f)
-        {
-            return Math.Abs(Math.Round(f) - f) < float.Epsilon;
         }
     }
 }
