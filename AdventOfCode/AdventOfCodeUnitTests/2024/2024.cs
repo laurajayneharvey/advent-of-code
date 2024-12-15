@@ -12,6 +12,7 @@ using AdventOfCode._2024.Day9;
 using AdventOfCodeUnitTests._2024;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using AdventOfCode._2024.Day12;
+using AdventOfCode._2024.Day13;
 
 namespace AdventOfCode.UnitTests
 {
@@ -272,6 +273,17 @@ namespace AdventOfCode.UnitTests
         {
             var program = new Day12();
             var actual = program.Run(input, true);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        [DataRow(SampleInput.Day13, 480)]
+        [DataRow(RealInput.Day13, 31897)]
+
+        public void Day13_Part1(string input, int expected)
+        {
+            var program = new Day13_Part1();
+            var actual = program.Run(input);
             Assert.AreEqual(expected, actual);
         }
     }
