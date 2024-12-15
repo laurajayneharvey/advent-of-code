@@ -133,5 +133,18 @@ VVIIICJJEE
 MIIIIIJJEE
 MIIISIJEEE
 MMMISSJEEE";
+
+        public const string Day12d = @"EEEEE
+EXXXX
+EEEEE
+EXXXX
+EEEEE";
+
+        public const string Day12e = @"AAAAAA
+AAABBA
+AAABBA
+ABBAAA
+ABBAAA
+AAAAAA";
     }
 }
