@@ -1,6 +1,4 @@
-﻿using AdventOfCode._2024.Day14;
-
-namespace AdventOfCode._2024.Day15
+﻿namespace AdventOfCode._2024.Day15
 {
     public class Day15_Part1
     {
@@ -42,13 +40,13 @@ namespace AdventOfCode._2024.Day15
                     var nextDot = mapItems.LastOrDefault(m => m.X < x && m.Y == y && m.IsSpace);
                     if (nextDot == null)
                     {
-                        //output += Print(mapItems, rowCount, columnCount, direction);
+                        //output += Day15.Print(mapItems, rowCount, columnCount, direction);
                         continue;
                     }
                     var nextWall = mapItems.Last(m => m.X < x && m.Y == y && m.IsWall);
                     if (nextDot.X < nextWall.X)
                     {
-                        //output += Print(mapItems, rowCount, columnCount, direction);
+                        //output += Day15.Print(mapItems, rowCount, columnCount, direction);
                         continue;
                     }
 
@@ -64,13 +62,13 @@ namespace AdventOfCode._2024.Day15
                     var nextDot = mapItems.FirstOrDefault(m => m.X > x && m.Y == y && m.IsSpace);
                     if (nextDot == null)
                     {
-                        //output += Print(mapItems, rowCount, columnCount, direction);
+                        //output += Day15.Print(mapItems, rowCount, columnCount, direction);
                         continue;
                     }
                     var nextWall = mapItems.First(m => m.X > x && m.Y == y && m.IsWall);
                     if (nextDot.X > nextWall.X)
                     {
-                        //output += Print(mapItems, rowCount, columnCount, direction);
+                        //output += Day15.Print(mapItems, rowCount, columnCount, direction);
                         continue;
                     }
 
@@ -86,13 +84,13 @@ namespace AdventOfCode._2024.Day15
                     var nextDot = mapItems.FirstOrDefault(m => m.X == x && m.Y > y && m.IsSpace);
                     if (nextDot == null)
                     {
-                        //output += Print(mapItems, rowCount, columnCount, direction);
+                        //output += Day15.Print(mapItems, rowCount, columnCount, direction);
                         continue;
                     }
                     var nextWall = mapItems.First(m => m.X == x && m.Y > y && m.IsWall);
                     if (nextDot.Y > nextWall.Y)
                     {
-                        //output += Print(mapItems, rowCount, columnCount, direction);
+                        //output += Day15.Print(mapItems, rowCount, columnCount, direction);
                         continue;
                     }
 
@@ -108,13 +106,13 @@ namespace AdventOfCode._2024.Day15
                     var nextDot = mapItems.LastOrDefault(m => m.X == x && m.Y < y && m.IsSpace);
                     if (nextDot == null)
                     {
-                        //output += Print(mapItems, rowCount, columnCount, direction);
+                        //output += Day15.Print(mapItems, rowCount, columnCount, direction);
                         continue;
                     }
                     var nextWall = mapItems.Last(m => m.X == x && m.Y < y && m.IsWall);
                     if (nextDot.Y < nextWall.Y)
                     {
-                        //output += Print(mapItems, rowCount, columnCount, direction);
+                        //output += Day15.Print(mapItems, rowCount, columnCount, direction);
                         continue;
                     }
 
@@ -131,40 +129,10 @@ namespace AdventOfCode._2024.Day15
                     mapItems.First(map => map.X == robot.X && map.Y == robot.Y).Value = '.';
                 }
 
-                //output += Print(mapItems, rowCount, columnCount, direction);
+                //output += Day15.Print(mapItems, rowCount, columnCount, direction);
             }
 
             return mapItems.Where(m => m.IsBox).Select(m => m.Y * 100 + m.X).Sum();
         }
-
-        private static string Print(List<MapItem> mapItems, int width, int height, char direction)
-        {
-            var output = $"Move {direction}:\r\n";
-            for (var i = 0; i < height; i++)
-            {
-                var line = string.Empty;
-                for (var j = 0; j < width; j++)
-                {
-                    line += mapItems.First(r => r.X == j && r.Y == i).Value;
-                }
-
-                output += line;
-                output += "\r\n";
-            }
-            output += "\r\n";
-
-            return output;
-        }
-    }
-
-    public class MapItem
-    {
-        public int X;
-        public int Y;
-        public char Value;
-        public bool IsBox => Value == 'O';
-        public bool IsRobot => Value == '@';
-        public bool IsSpace => Value == '.';
-        public bool IsWall => Value == '#';
     }
 }
