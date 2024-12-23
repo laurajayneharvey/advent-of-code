@@ -14,6 +14,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using AdventOfCode._2024.Day12;
 using AdventOfCode._2024.Day13;
 using AdventOfCode._2024.Day14;
+using AdventOfCodeUnitTests;
 
 namespace AdventOfCode.UnitTests
 {
@@ -198,7 +199,7 @@ namespace AdventOfCode.UnitTests
         [DataRow(SampleInput.Day9, 2858)]
         [DataRow(RealInput.Day9, 6347435485773)]
 
-        public void Day9_Part2(string input, int expected)
+        public void Day9_Part2(string input, long expected)
         {
             var program = new Day9_Part2();
             var actual = program.Run(input);
@@ -304,7 +305,18 @@ namespace AdventOfCode.UnitTests
 
         public void Day14_Part1(string input, int width, int height, int expected)
         {
-            var program = new Day14();
+            var program = new Day14_Part1();
+            var actual = program.Run(input, width, height, 100);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        [SkipDataRow("3.8 mins", RealInput.Day14, 101, 103, 6355)]
+        [DataRow(RealInput.Day14, 101, 103, 6355)]
+
+        public void Day14_Part2(string input, int width, int height, int expected)
+        {
+            var program = new Day14_Part2();
             var actual = program.Run(input, width, height);
             Assert.AreEqual(expected, actual);
         }

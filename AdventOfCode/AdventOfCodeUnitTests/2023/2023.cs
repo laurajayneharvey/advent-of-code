@@ -19,6 +19,7 @@ using AdventOfCode._2023.Day6;
 using AdventOfCode._2023.Day7;
 using AdventOfCode._2023.Day8;
 using AdventOfCode._2023.Day9;
+using AdventOfCodeUnitTests;
 using AdventOfCodeUnitTests._2023;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -429,15 +430,6 @@ namespace AdventOfCode.UnitTests
         [DataRow(RealInput.Day21, 0)]
         public void Day21_Part2(string input, int expected)
         {
-        }
-    }
-
-    [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
-    public class SkipDataRowAttribute : Attribute
-    {
-        public SkipDataRowAttribute(string message, string input, object expectedResult)
-        {
-            Console.WriteLine($"Skipped test: {message}");
         }
     }
 }

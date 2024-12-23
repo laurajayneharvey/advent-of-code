@@ -1,10 +1,8 @@
-﻿using System.Drawing;
-
-namespace AdventOfCode._2024.Day14
+﻿namespace AdventOfCode._2024.Day14
 {
-    public class Day14
+    public static class Day14
     {
-        public int Run(string input, int width, int height)
+        public static List<Robot> GetRobots(string input)
         {
             var rows = input.Split("\r\n");
             var robots = new List<Robot>();
@@ -22,57 +20,7 @@ namespace AdventOfCode._2024.Day14
                 });
             }
 
-            var xHalf = (width - 1) / 2;
-            var yHalf = (height - 1) / 2;
-
-            var quadrant1 = 0;
-            var quadrant2 = 0;
-            var quadrant3 = 0;
-            var quadrant4 = 0;
-
-            for (var second = 1; second <= 100; second++)
-            {
-                foreach (var robot in robots)
-                {
-                    var currentPositionX = robot.PositionX;
-                    var currentPositionY = robot.PositionY;
-
-
-                    var newPositionX = currentPositionX + robot.VelocityX;
-                    if (newPositionX < 0)
-                    {
-                        currentPositionX = newPositionX + width;
-                    }
-                    else
-                    {
-                        currentPositionX = newPositionX % width;
-                    }
-
-                    var newPositionY = currentPositionY + robot.VelocityY;
-                    if (newPositionY < 0)
-                    {
-                        currentPositionY = newPositionY + height;
-                    }
-                    else
-                    {
-                        currentPositionY = newPositionY % height;
-                    }
-
-                    robot.PositionX = currentPositionX;
-                    robot.PositionY = currentPositionY;
-                }
-
-                quadrant1 = robots.Count(r => r.PositionX >= 0 && r.PositionX <= xHalf - 1
-                                            && r.PositionY >= 0 && r.PositionY <= yHalf - 1);
-                quadrant2 = robots.Count(r => r.PositionX >= xHalf + 1 && r.PositionX <= width - 1
-                                                && r.PositionY >= 0 && r.PositionY <= yHalf - 1);
-                quadrant3 = robots.Count(r => r.PositionX >= 0 && r.PositionX <= xHalf - 1
-                                                && r.PositionY >= yHalf + 1 && r.PositionY <= height - 1);
-                quadrant4 = robots.Count(r => r.PositionX >= xHalf + 1 && r.PositionX <= width - 1
-                                                && r.PositionY >= yHalf + 1 && r.PositionY <= height - 1);
-            }
-
-            return quadrant1 * quadrant2 * quadrant3 * quadrant4;
+            return robots;
         }
     }
 
