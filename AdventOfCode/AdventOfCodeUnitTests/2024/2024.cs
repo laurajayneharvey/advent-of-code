@@ -15,6 +15,7 @@ using AdventOfCode._2024.Day12;
 using AdventOfCode._2024.Day13;
 using AdventOfCode._2024.Day14;
 using AdventOfCodeUnitTests;
+using AdventOfCode._2024.Day15;
 
 namespace AdventOfCode.UnitTests
 {
@@ -312,12 +313,23 @@ namespace AdventOfCode.UnitTests
 
         [TestMethod]
         [SkipDataRow("3.8 mins", RealInput.Day14, 101, 103, 6355)]
-        [DataRow(RealInput.Day14, 101, 103, 6355)]
 
         public void Day14_Part2(string input, int width, int height, int expected)
         {
             var program = new Day14_Part2();
             var actual = program.Run(input, width, height);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        [DataRow(SampleInput.Day15a, 2028)]
+        [DataRow(SampleInput.Day15b, 10092)]
+        [DataRow(RealInput.Day15, 1527563)]
+
+        public void Day15_Part1(string input, int expected)
+        {
+            var program = new Day15_Part1();
+            var actual = program.Run(input);
             Assert.AreEqual(expected, actual);
         }
     }
