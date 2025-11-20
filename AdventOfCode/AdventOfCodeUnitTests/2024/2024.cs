@@ -6,6 +6,7 @@ using AdventOfCode._2024.Day13;
 using AdventOfCode._2024.Day14;
 using AdventOfCode._2024.Day15;
 using AdventOfCode._2024.Day17;
+using AdventOfCode._2024.Day19;
 using AdventOfCode._2024.Day2;
 using AdventOfCode._2024.Day3;
 using AdventOfCode._2024.Day4;
@@ -360,6 +361,19 @@ namespace AdventOfCode.UnitTests
             {
                 Assert.AreEqual(expectedC, actual.c);
             }
+        }
+
+        // skipped Day18
+
+        [TestMethod]
+        [DataRow(SampleInput.Day19, 6)]
+        [DataRow(RealInput.Day19, 355)]
+
+        public void Day19_Part1(string input, int expected)
+        {
+            var program = new Day19_Part1();
+            var actual = program.Run(input);
+            Assert.AreEqual(expected, actual);
         }
     }
 }

@@ -249,5 +249,16 @@ Register B: 0
 Register C: 0
 
 Program: 0,1,5,4,3,0";
+
+        public const string Day19 = @"r, wr, b, g, bwu, rb, gb, br
+
+brwrr
+bggr
+gbbr
+rrbgbr
+ubwu
+bwurrg
+brgr
+bbrgwb";
     }
 }
