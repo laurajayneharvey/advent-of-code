@@ -1,6 +1,11 @@
-﻿using AdventOfCode._2024.Day11;
-using AdventOfCode._2024.Day1;
+﻿using AdventOfCode._2024.Day1;
 using AdventOfCode._2024.Day10;
+using AdventOfCode._2024.Day11;
+using AdventOfCode._2024.Day12;
+using AdventOfCode._2024.Day13;
+using AdventOfCode._2024.Day14;
+using AdventOfCode._2024.Day15;
+using AdventOfCode._2024.Day17;
 using AdventOfCode._2024.Day2;
 using AdventOfCode._2024.Day3;
 using AdventOfCode._2024.Day4;
@@ -9,13 +14,8 @@ using AdventOfCode._2024.Day6;
 using AdventOfCode._2024.Day7;
 using AdventOfCode._2024.Day8;
 using AdventOfCode._2024.Day9;
-using AdventOfCodeUnitTests._2024;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using AdventOfCode._2024.Day12;
-using AdventOfCode._2024.Day13;
-using AdventOfCode._2024.Day14;
 using AdventOfCodeUnitTests;
-using AdventOfCode._2024.Day15;
+using AdventOfCodeUnitTests._2024;
 
 namespace AdventOfCode.UnitTests
 {
@@ -331,6 +331,35 @@ namespace AdventOfCode.UnitTests
             var program = new Day15_Part1();
             var actual = program.Run(input);
             Assert.AreEqual(expected, actual);
+        }
+
+        // skipped Day15_Part2 and Day16, just going for ones that look easier now!
+
+        [TestMethod]
+        [DataRow(SampleInput.Day17a_1, "", -1, 1, -1)]
+        [DataRow(SampleInput.Day17a_2, "0,1,2", -1, -1, -1)]
+        [DataRow(SampleInput.Day17a_3, "4,2,5,6,7,7,7,7,3,1,0", 0, -1, -1)]
+        [DataRow(SampleInput.Day17a_4, "", -1, 26, -1)]
+        [DataRow(SampleInput.Day17a_5, "", -1, 44354, -1)]
+        [DataRow(SampleInput.Day17a, "4,6,3,5,6,3,5,2,1,0", -1, -1, -1)]
+        [DataRow(RealInput.Day17, "6,5,7,4,5,7,3,1,0", -1, -1, -1)]
+        public void Day17_Part1(string input, string expectedOutput, int expectedA, int expectedB, int expectedC)
+        {
+            var program = new Day17_Part1();
+            var actual = program.Run(input);
+            Assert.AreEqual(expectedOutput, actual.output);
+            if (expectedA != -1)
+            {
+                Assert.AreEqual(expectedA, actual.a);
+            }
+            if (expectedB != -1)
+            {
+                Assert.AreEqual(expectedB, actual.b);
+            }
+            if (expectedC != -1)
+            {
+                Assert.AreEqual(expectedC, actual.c);
+            }
         }
     }
 }
