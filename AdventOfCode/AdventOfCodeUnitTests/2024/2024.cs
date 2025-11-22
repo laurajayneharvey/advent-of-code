@@ -8,6 +8,7 @@ using AdventOfCode._2024.Day15;
 using AdventOfCode._2024.Day17;
 using AdventOfCode._2024.Day19;
 using AdventOfCode._2024.Day2;
+using AdventOfCode._2024.Day22;
 using AdventOfCode._2024.Day3;
 using AdventOfCode._2024.Day4;
 using AdventOfCode._2024.Day5;
@@ -334,15 +335,13 @@ namespace AdventOfCode.UnitTests
             Assert.AreEqual(expected, actual);
         }
 
-        // skipped Day15_Part2 and Day16, just going for ones that look easier now!
-
         [TestMethod]
-        [DataRow(SampleInput.Day17a_1, "", -1, 1, -1)]
-        [DataRow(SampleInput.Day17a_2, "0,1,2", -1, -1, -1)]
-        [DataRow(SampleInput.Day17a_3, "4,2,5,6,7,7,7,7,3,1,0", 0, -1, -1)]
-        [DataRow(SampleInput.Day17a_4, "", -1, 26, -1)]
-        [DataRow(SampleInput.Day17a_5, "", -1, 44354, -1)]
-        [DataRow(SampleInput.Day17a, "4,6,3,5,6,3,5,2,1,0", -1, -1, -1)]
+        [DataRow(SampleInput.Day17a, "", -1, 1, -1)]
+        [DataRow(SampleInput.Day17b, "0,1,2", -1, -1, -1)]
+        [DataRow(SampleInput.Day17c, "4,2,5,6,7,7,7,7,3,1,0", 0, -1, -1)]
+        [DataRow(SampleInput.Day17d, "", -1, 26, -1)]
+        [DataRow(SampleInput.Day17e, "", -1, 44354, -1)]
+        [DataRow(SampleInput.Day17f, "4,6,3,5,6,3,5,2,1,0", -1, -1, -1)]
         [DataRow(RealInput.Day17, "6,5,7,4,5,7,3,1,0", -1, -1, -1)]
         public void Day17_Part1(string input, string expectedOutput, int expectedA, int expectedB, int expectedC)
         {
@@ -363,8 +362,6 @@ namespace AdventOfCode.UnitTests
             }
         }
 
-        // skipped Day18
-
         [TestMethod]
         [DataRow(SampleInput.Day19, 6)]
         [DataRow(RealInput.Day19, 355)]
@@ -374,6 +371,27 @@ namespace AdventOfCode.UnitTests
             var program = new Day19_Part1();
             var actual = program.Run(input);
             Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        [DataRow(SampleInput.Day22a, 1, 15887950)]
+        [DataRow(SampleInput.Day22a, 2, 16495136)]
+        [DataRow(SampleInput.Day22a, 3, 527345)]
+        [DataRow(SampleInput.Day22a, 4, 704524)]
+        [DataRow(SampleInput.Day22a, 5, 1553684)]
+        [DataRow(SampleInput.Day22a, 6, 12683156)]
+        [DataRow(SampleInput.Day22a, 7, 11100544)]
+        [DataRow(SampleInput.Day22a, 8, 12249484)]
+        [DataRow(SampleInput.Day22a, 9, 7753432)]
+        [DataRow(SampleInput.Day22a, 10, 5908254)]
+        [DataRow(SampleInput.Day22b, 2000, 37327623)]
+        [DataRow(RealInput.Day22, 2000, 18317943467)]
+
+        public void Day22_Part1(string input, int count, long expected)
+        {
+            var program = new Day22_Part1();
+            var actual = program.Run(input, count);
+            Assert.AreEqual(expected, (long)actual);
         }
     }
 }
