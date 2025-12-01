@@ -2,7 +2,16 @@
 {
     public class SampleInput
     {
-        public const string Day1 = @"";
+        public const string Day1 = @"L68
+L30
+R48
+L5
+R60
+L55
+L1
+L99
+R14
+L82";
 
         public const string Day2 = @"";
 
