@@ -45,7 +45,10 @@ L82";
 17
 32";
 
-        public const string Day6 = @"";
+        public const string Day6 = @"123 328  51 64 
+ 45 64  387 23 
+  6 98  215 314
+*   +   *   +  ";
 
         public const string Day7 = @"";
 
