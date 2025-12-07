@@ -28,9 +28,9 @@ namespace AdventOfCode.UnitTests
         }
 
         [TestMethod]
-        [DataRow(SampleInput.Day2, 0)]
-        [DataRow(RealInput.Day2, 0)]
-        public void Day2_Part1(string input, int expected)
+        [DataRow(SampleInput.Day2, (ulong)1227775554)]
+        [DataRow(RealInput.Day2, (ulong)20223751480)]
+        public void Day2_Part1(string input, ulong expected)
         {
             var program = new Day2_Part1();
             var actual = program.Run(input);
