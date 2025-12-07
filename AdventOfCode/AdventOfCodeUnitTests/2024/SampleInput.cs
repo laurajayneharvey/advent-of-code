@@ -208,5 +208,46 @@ vvv<<^>^v^^><<>>><>^<<><^vv^^<>vvv<>><^^v>^>vv<>v<<<<v<^v>^<^^>>>^<v<v
 <><^^>^^^<><vvvvv^v<v<<>^v<v>v<<^><<><<><<<^^<<<^<<>><<><^^^>^^<>^>v<>
 ^^>vv<^v^v<vv>^<><v<^v>^^^>>>^^vvv^>vvv<>>>^<^>>>>>^<<^v>^vvv<>^<><<v>
 v^^>>><<^^<>>^v^<v^vv<>v^<<>^<^v^v><^<<<><<^<v><v<>vv>>v><v^<vv<>v^<<^";
+
+        //If register C contains 9, the program 2,6 would set register B to 1.
+        public const string Day17a_1 = @"Register A: 0
+Register B: 0
+Register C: 9
+
+Program: 2,6";
+
+        //If register A contains 10, the program 5,0,5,1,5,4 would output 0,1,2.
+        public const string Day17a_2 = @"Register A: 10
+Register B: 0
+Register C: 0
+
+Program: 5,0,5,1,5,4";
+
+        //If register A contains 2024, the program 0,1,5,4,3,0 would output 4,2,5,6,7,7,7,7,3,1,0 and leave 0 in register A.
+        public const string Day17a_3 = @"Register A: 2024
+Register B: 0
+Register C: 0
+
+Program: 0,1,5,4,3,0";
+
+        //If register B contains 29, the program 1,7 would set register B to 26.
+        public const string Day17a_4 = @"Register A: 0
+Register B: 29
+Register C: 0
+
+Program: 1,7";
+
+        //If register B contains 2024 and register C contains 43690, the program 4,0 would set register B to 44354.
+        public const string Day17a_5 = @"Register A: 0
+Register B: 2024
+Register C: 43690
+
+Program: 4,0";
+
+        public const string Day17a = @"Register A: 729
+Register B: 0
+Register C: 0
+
+Program: 0,1,5,4,3,0";
     }
 }
