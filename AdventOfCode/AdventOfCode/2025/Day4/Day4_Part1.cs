@@ -4,19 +4,6 @@
     {
         public int Run(string input)
         {
-            /*
-..@@.@@@@.
-@@@.@.@.@@
-@@@@@.@.@@
-@.@@@@..@.
-@@.@@@@.@@
-.@@@@@@@.@
-.@.@.@.@@@
-@.@@@.@@@@
-.@@@@@@@@.
-@.@.@@@.@.
-             */
-
             var rows = input.Split("\r\n");
             var coordinates = new List<Coordinate>();
             for (var rowIndex = 0; rowIndex < rows.Length; rowIndex++)
@@ -51,11 +38,11 @@
                 }
                 if (wallpaperAdjacentCount < 4)
                 {
-                    wallpaperCoordinate.Accessible = true;
+                    wallpaperCoordinate.IsAccessible = true;
                 }
             }
 
-            return wallpaperCoordinates.Count(c => c.Accessible);
+            return wallpaperCoordinates.Count(c => c.IsAccessible);
         }
 
         private class Coordinate
@@ -63,9 +50,10 @@
             public int X;
             public int Y;
 
-            public bool IsWallpaper => Value == '@';
             public char Value;
-            public bool Accessible = false;
+
+            public bool IsWallpaper => Value == '@';
+            public bool IsAccessible = false;
 
             public (int X, int Y) North => new(X, Y - 1);
             public (int X, int Y) South => new(X, Y + 1);

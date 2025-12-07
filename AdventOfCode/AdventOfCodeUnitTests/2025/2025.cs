@@ -78,8 +78,8 @@ namespace AdventOfCode.UnitTests
         }
 
         [TestMethod]
-        [DataRow(SampleInput.Day7, 0)]
-        [DataRow(RealInput.Day7, 0)]
+        [DataRow(SampleInput.Day7, 21)]
+        [DataRow(RealInput.Day7, 1619)]
         public void Day7_Part1(string input, int expected)
         {
             var program = new Day7_Part1();
