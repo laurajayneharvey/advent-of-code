@@ -18,8 +18,8 @@ namespace AdventOfCode.UnitTests
     public class _2025
     {
         [TestMethod]
-        [DataRow(SampleInput.Day1, 0)]
-        [DataRow(RealInput.Day1, 0)]
+        [DataRow(SampleInput.Day1, 3)]
+        [DataRow(RealInput.Day1, 992)]
         public void Day1_Part1(string input, int expected)
         {
             var program = new Day1_Part1();
