@@ -88,12 +88,13 @@ namespace AdventOfCode.UnitTests
         }
 
         [TestMethod]
-        [DataRow(SampleInput.Day8, 0)]
-        [DataRow(RealInput.Day8, 0)]
-        public void Day8_Part1(string input, int expected)
+        [DataRow(SampleInput.Day8, 10, 40)]
+        [DataRow(SampleInput.Day8b, 3, 4)]
+        [DataRow(RealInput.Day8, 1000, 115885)]
+        public void Day8_Part1(string input, int connectionCount, int expected)
         {
             var program = new Day8_Part1();
-            var actual = program.Run(input);
+            var actual = program.Run(input, connectionCount);
             Assert.AreEqual(expected, actual);
         }
 
