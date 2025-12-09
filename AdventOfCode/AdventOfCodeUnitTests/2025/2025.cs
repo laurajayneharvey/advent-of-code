@@ -89,7 +89,7 @@ namespace AdventOfCode.UnitTests
 
         [TestMethod]
         [DataRow(SampleInput.Day8, 10, 40)]
-        [DataRow(SampleInput.Day8b, 3, 4)]
+        [DataRow(SampleInput.Day8b, 5, 5)]
         [DataRow(RealInput.Day8, 1000, 115885)]
         public void Day8_Part1(string input, int connectionCount, int expected)
         {

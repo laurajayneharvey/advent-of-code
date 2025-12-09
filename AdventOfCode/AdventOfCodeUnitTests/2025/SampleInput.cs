@@ -89,24 +89,42 @@ L82";
 425,690,689";
 
         /*
-         * A(0,0,0)-----1st-----B(1,1,1)-----3rd-----C(50,50,50)
-         *                                                |
-         *                                                |
-         *                                               2nd
-         *                                                |
-         *                                                |
-         * D(300,300,300)     E(400,400,400)         F(51,51,51)  
+         * A(0,0,0)-----1st-----B(1,1,1)-----3rd-----C(4,4,4)-----4th-----D(100,100,100)
+         *                                                                      |
+         *                                                                      |
+         *                                                                      2nd
+         *                                                                      |
+         *                                                                      |
+         * E(1000,1000,1000)    F(2000,2000,2000)    G(3000,3000,3000)    H(102,102,102) 
+         * 
+         * shortest
+         * A-B 1ST
+         * A-C 3RD OR 4TH
+         * A-D 8TH
+         * A-H 10TH...
+         * B-C 3RD OR 4TH
+         * B-D 7TH
+         * B-H 9TH
+         * C-D 5TH
+         * C-H 6TH
+         * D-H 2ND
          * 
          * after connection 1 made, circuits are [[A,B]]
-         * after connection 2 made, circuits are [[A,B],[C,F]]
-         * after connection 3 made, circuits are [[A,B,C,F]]
+         * after connection 2 made, circuits are [[A,B],[D,H]]
+         * after connection 3 made, circuits are [[A,B,C],[D,H]]
+         * after connection 4 made, circuits are [[A,B,C],[D,H]] no change
+         * after connection 5 made, circuits are [[A,B,C,D,H]]
+         * 
+         * count = 5 * 1 * 1 = 5
          */
         public const string Day8b = @"0,0,0
 1,1,1
-50,50,50
-51,51,51
-300,300,300
-400,400,400";
+4,4,4
+100,100,100
+102,102,102
+1000,1000,1000
+2000,2000,2000
+3000,3000,3000";
 
         public const string Day9 = @"";
 
