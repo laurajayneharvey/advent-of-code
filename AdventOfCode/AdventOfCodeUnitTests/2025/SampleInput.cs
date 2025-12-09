@@ -126,7 +126,14 @@ L82";
 2000,2000,2000
 3000,3000,3000";
 
-        public const string Day9 = @"";
+        public const string Day9 = @"7,1
+11,1
+11,7
+9,7
+9,5
+2,5
+2,3
+7,3";
 
         public const string Day10 = @"";
 

@@ -1,4 +1,7 @@
 ﻿using AdventOfCode._2025.Day1;
+using AdventOfCode._2025.Day10;
+using AdventOfCode._2025.Day11;
+using AdventOfCode._2025.Day12;
 using AdventOfCode._2025.Day2;
 using AdventOfCode._2025.Day3;
 using AdventOfCode._2025.Day4;
@@ -7,9 +10,6 @@ using AdventOfCode._2025.Day6;
 using AdventOfCode._2025.Day7;
 using AdventOfCode._2025.Day8;
 using AdventOfCode._2025.Day9;
-using AdventOfCode._2025.Day10;
-using AdventOfCode._2025.Day11;
-using AdventOfCode._2025.Day12;
 using AdventOfCodeUnitTests._2025;
 
 namespace AdventOfCode.UnitTests
@@ -99,9 +99,9 @@ namespace AdventOfCode.UnitTests
         }
 
         [TestMethod]
-        [DataRow(SampleInput.Day9, 0)]
-        [DataRow(RealInput.Day9, 0)]
-        public void Day9_Part1(string input, int expected)
+        [DataRow(SampleInput.Day9, (long)50)]
+        [DataRow(RealInput.Day9, (long)4725826296)]
+        public void Day9_Part1(string input, long expected)
         {
             var program = new Day9_Part1();
             var actual = program.Run(input);
