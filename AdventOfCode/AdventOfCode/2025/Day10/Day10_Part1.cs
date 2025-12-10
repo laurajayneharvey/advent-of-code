@@ -35,12 +35,9 @@
                 var clonedButtonsToExclude = ((Button[])buttonsToExclude.Clone()).ToList();
                 clonedButtonsToExclude.Add(button);
                 var clonedIndicatorLight = (bool[])indicatorLight.Clone();
-                foreach (var buttonToExclude in clonedButtonsToExclude)
+                foreach (var toggle in button.Toggles)
                 {
-                    foreach (var toggle in buttonToExclude.Toggles)
-                    {
-                        clonedIndicatorLight[toggle] = !clonedIndicatorLight[toggle];
-                    }
+                    clonedIndicatorLight[toggle] = !clonedIndicatorLight[toggle];
                 }
                 if (clonedIndicatorLight.SequenceEqual(goal))
                 {
@@ -53,7 +50,7 @@
                 }
                 else
                 {
-                    min = Math.Min(Blah(buttons, indicatorLight, goal, min, [.. clonedButtonsToExclude]), min);
+                    min = Math.Min(Blah(buttons, clonedIndicatorLight, goal, min, [.. clonedButtonsToExclude]), min);
                 }
 
             }
