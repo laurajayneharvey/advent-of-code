@@ -110,7 +110,7 @@ namespace AdventOfCode.UnitTests
 
         [TestMethod]
         [DataRow(SampleInput.Day10, 7)]
-        [DataRow(RealInput.Day10, 507)] // very slow, ~2.2 minutes
+        [DataRow(RealInput.Day10, 507)] // slow, ~2.2 minutes
         public void Day10_Part1(string input, int expected)
         {
             var program = new Day10_Part1();

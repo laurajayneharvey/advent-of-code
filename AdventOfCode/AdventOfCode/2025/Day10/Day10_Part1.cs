@@ -5,50 +5,43 @@
         public int Run(string input)
         {
             var machines = input.Split("\r\n");
-            var minsSum = 0;
+            var sum = 0;
             foreach (var machine in machines)
             {
-                var withoutJoltage = machine.Split('{')[0];
-                var goal = withoutJoltage.Split(']')[0].Skip(1).Select(c => c == '#').ToArray();
-                var buttons = withoutJoltage.Split(']')[1].Replace(" ", "").Replace("(", "").Split(')').Where(b => b != string.Empty).Select(b =>
-                {
-                    return b.Split(',').Select(int.Parse).ToList();
-                }).ToArray();
+                var partsWithoutJoltage = machine.Split('{')[0].Split(']');
+                var goal = partsWithoutJoltage[0].Skip(1).Select(c => c == '#');
+                var buttons = partsWithoutJoltage[1].Replace(" ", "").Replace("(", "").Split(')').Where(b => b != string.Empty).Select(b => b.Split(',').Select(int.Parse));
 
-                var indicatorLight = Enumerable.Repeat(false, goal.Length).ToArray();
-
-                var min = Blah(buttons, indicatorLight, goal, int.MaxValue, []);
-
-                minsSum += min;
+                sum += GetMinimumPresses(buttons, [.. Enumerable.Repeat(false, goal.Count())], goal, int.MaxValue, []);
             }
 
-            return minsSum;
+            return sum;
         }
 
-        private int Blah(List<int>[] buttons, bool[] indicatorLight, bool[] goal, int min, List<int>[] buttonsToExclude)
+        private static int GetMinimumPresses(IEnumerable<IEnumerable<int>> buttons, bool[] indicatorLight, IEnumerable<bool> goal, int min, IEnumerable<int>[] buttonsToExclude)
         {
             foreach (var button in buttons.Except(buttonsToExclude))
             {
-                var clonedButtonsToExclude = ((List<int>[])buttonsToExclude.Clone());
+                var clonedButtonsToExclude = (IEnumerable<int>[])buttonsToExclude.Clone();
                 var clonedIndicatorLight = (bool[])indicatorLight.Clone();
+
                 foreach (var toggle in button)
                 {
                     clonedIndicatorLight[toggle] = !clonedIndicatorLight[toggle];
                 }
                 if (clonedIndicatorLight.SequenceEqual(goal))
                 {
-                    min = Math.Min(min, clonedButtonsToExclude.Length + 1);
+                    min = Math.Min(min, clonedButtonsToExclude.Length + 1); // already excluded + current button
                     break;
                 }
-                else if (min <= clonedButtonsToExclude.Length + 2)
+                else if (min <= clonedButtonsToExclude.Length + 2) // already excluded + current button + next button
                 {
                     continue;
                 }
                 else
                 {
-                    min = Math.Min(Blah(buttons, clonedIndicatorLight, goal, min, [.. clonedButtonsToExclude, button]), min);
+                    min = Math.Min(GetMinimumPresses(buttons, clonedIndicatorLight, goal, min, [.. clonedButtonsToExclude, button]), min);
                 }
-
             }
 
             return min;
