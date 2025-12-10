@@ -12,10 +12,7 @@
                 var goal = withoutJoltage.Split(']')[0].Skip(1).Select(c => c == '#').ToArray();
                 var buttons = withoutJoltage.Split(']')[1].Replace(" ", "").Replace("(", "").Split(')').Where(b => b != string.Empty).Select(b =>
                 {
-                    return new Button
-                    {
-                        Toggles = [.. b.Split(',').Select(int.Parse)]
-                    };
+                    return b.Split(',').Select(int.Parse).ToList();
                 }).ToArray();
 
                 var indicatorLight = Enumerable.Repeat(false, goal.Length).ToArray();
@@ -28,14 +25,14 @@
             return minsSum;
         }
 
-        private int Blah(Button[] buttons, bool[] indicatorLight, bool[] goal, int min, Button[] buttonsToExclude)
+        private int Blah(List<int>[] buttons, bool[] indicatorLight, bool[] goal, int min, List<int>[] buttonsToExclude)
         {
             foreach (var button in buttons.Except(buttonsToExclude))
             {
-                var clonedButtonsToExclude = ((Button[])buttonsToExclude.Clone()).ToList();
+                var clonedButtonsToExclude = ((List<int>[])buttonsToExclude.Clone()).ToList();
                 clonedButtonsToExclude.Add(button);
                 var clonedIndicatorLight = (bool[])indicatorLight.Clone();
-                foreach (var toggle in button.Toggles)
+                foreach (var toggle in button)
                 {
                     clonedIndicatorLight[toggle] = !clonedIndicatorLight[toggle];
                 }
@@ -56,16 +53,6 @@
             }
 
             return min;
-        }
-
-        public class Button
-        {
-            public List<int> Toggles = [];
-
-            public override bool Equals(object? obj)
-            {
-                return obj is Button button && button.Toggles.SequenceEqual(Toggles);
-            }
         }
     }
 }
