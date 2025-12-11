@@ -28,6 +28,16 @@ namespace AdventOfCode.UnitTests
         }
 
         [TestMethod]
+        [DataRow(SampleInput.Day1, 6)]
+        [DataRow(RealInput.Day1, 6133)]
+        public void Day1_Part2(string input, int expected)
+        {
+            var program = new Day1_Part2();
+            var actual = program.Run(input);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
         [DataRow(SampleInput.Day2, (ulong)1227775554)]
         [DataRow(RealInput.Day2, (ulong)20223751480)]
         public void Day2_Part1(string input, ulong expected)
