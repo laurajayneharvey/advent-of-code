@@ -119,6 +119,16 @@ namespace AdventOfCode.UnitTests
         }
 
         [TestMethod]
+        [DataRow(SampleInput.Day8, 25272)]
+        [DataRow(RealInput.Day8, 274150525)]// this takes a hilariously long time to run!
+        public void Day8_Part2(string input, int expected)
+        {
+            var program = new Day8_Part2();
+            var actual = program.Run(input);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
         [DataRow(SampleInput.Day9, (long)50)]
         [DataRow(RealInput.Day9, (long)4725826296)]
         public void Day9_Part1(string input, long expected)
